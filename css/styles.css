@@ -203,7 +203,33 @@ p{margin:0}
 .ripples .r3{animation:spin 120s linear infinite;opacity:.3}
 @keyframes spin{to{transform:rotate(360deg)}}
 
-.hero-inner{position:relative;z-index:1;max-width:760px}
+.hero-inner{
+  position:relative;z-index:1;
+  display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);
+  align-items:center;gap:clamp(32px,5vw,72px);
+}
+.hero-copy{max-width:620px}
+.hero-media{
+  position:relative;justify-self:end;
+  width:min(100%,440px);aspect-ratio:4/5;
+}
+.hero-media img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  border-radius:22px;
+  box-shadow:0 30px 60px -28px rgba(22,49,59,.55),0 8px 24px -12px rgba(22,49,59,.35);
+  transform:rotate(2deg);
+  transition:transform .6s cubic-bezier(.2,.7,.3,1);
+}
+.hero-media:hover img{transform:rotate(0deg)}
+.hero-badge{
+  position:absolute;left:-18px;bottom:24px;z-index:2;
+  display:inline-flex;align-items:center;gap:.5em;
+  padding:.7em 1.1em;border-radius:999px;
+  background:var(--porcelana);color:var(--tinta);
+  font:600 .9rem var(--font-body);
+  box-shadow:0 14px 30px -14px rgba(22,49,59,.5);
+}
+.hero-badge svg{width:18px;height:18px;color:var(--coral);flex:none}
 .hero .sub{
   margin-top:24px;font-size:clamp(1.05rem,1.6vw,1.22rem);
   color:#454a49;max-width:580px;
@@ -225,7 +251,40 @@ p{margin:0}
 .hero .sub{animation-delay:.16s}
 .hero-ctas{animation-delay:.24s}
 .hero-meta{animation-delay:.32s}
+.hero-media{animation:heroIn .9s cubic-bezier(.2,.7,.3,1) .2s both}
 @keyframes heroIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+
+/* Hero móvil: foto a pantalla completa con degradado y texto blanco */
+@media (max-width:980px){
+  .hero{min-height:100svh;padding-block:0;align-items:stretch}
+  .hero-inner{
+    display:block;max-width:none;
+    padding-block:clamp(110px,22vh,180px) clamp(48px,9vh,90px);
+  }
+  .hero-media{
+    position:absolute;inset:0;z-index:0;
+    width:100%;height:100%;aspect-ratio:auto;
+    justify-self:auto;margin:0;animation:none;
+  }
+  .hero-media img{
+    width:100%;height:100%;border-radius:0;
+    transform:none;box-shadow:none;
+  }
+  .hero-media::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(to top,rgba(12,28,34,.86) 6%,rgba(12,28,34,.55) 48%,rgba(12,28,34,.35) 100%);
+  }
+  .hero-badge{
+    left:auto;right:clamp(16px,5vw,40px);top:clamp(96px,16vh,150px);bottom:auto;
+  }
+  .hero .caustics{display:none}
+  .hero-copy{position:relative;z-index:1;max-width:none;color:var(--porcelana)}
+  .hero-copy h1,.hero-copy .sub,.hero-copy .eyebrow{color:var(--porcelana)}
+  .hero-copy .sub{color:rgba(250,247,242,.9)}
+  .hero-copy .hero-meta{color:rgba(250,247,242,.82)}
+  .hero-copy .btn-ghost{border-color:rgba(250,247,242,.5);color:var(--porcelana)}
+  .hero-copy .btn-ghost:hover{border-color:var(--porcelana);background:rgba(250,247,242,.08)}
+}
 
 /* ---------- Barra de confianza ---------- */
 .trust{border-block:1px solid rgba(22,49,59,.1);background:var(--porcelana)}
