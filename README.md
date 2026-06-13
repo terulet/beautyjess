@@ -1,66 +1,64 @@
-# BeautyJess — Web oficial
+# Beauty Jess — Web oficial
 
-Sitio web de **BeautyJess**, centro de estética avanzada y parafarmacia en Roses (Girona, Costa Brava).
+Sitio web de **Beauty Jess**, centro de estética avanzada y parafarmacia en Roses (Girona, Costa Brava).
 
-One-page premium en **HTML + CSS + JS vanilla**, sin frameworks ni dependencias externas: las tipografías (Fraunces y Figtree) van autoalojadas en `/fonts`, así que la web no hace ninguna petición a terceros (mejor RGPD, mejor rendimiento, funciona incluso offline una vez cargada).
+One-page premium en **HTML + CSS + JS vanilla**, sin frameworks ni dependencias externas: las tipografías (Fraunces y Figtree) van autoalojadas en `/fonts`, así que la web no hace ninguna petición a terceros (mejor RGPD, mejor rendimiento).
 
 ## Estructura
 
 ```
-├── index.html            ← la web (todo el contenido editable está aquí)
-├── css/styles.css        ← estilos (los colores de marca están en :root, al inicio)
-├── js/main.js            ← menú móvil, filtros de tratamientos, animaciones
-├── fonts/                ← Fraunces + Figtree (variable, subset latin)
-├── img/
-│   ├── favicon.svg / favicon-32.png / apple-touch-icon.png
-│   └── og-cover.jpg      ← imagen al compartir por WhatsApp/redes (provisional)
-├── aviso-legal.html      ← páginas legales (completar datos del titular)
-├── privacidad.html
-├── cookies.html
-├── 404.html              ← página de error (GitHub Pages la usa automáticamente)
-├── robots.txt
-└── sitemap.xml
+├── index.html              ← la web (todo el copy editable está aquí)
+├── css/style.css           ← estilos de la home (tokens de marca en :root)
+├── js/script.js            ← menú, filtros, antes/después, reels, animaciones
+├── assets/instagram/
+│   ├── README-ASSETS.md    ← ⭐ guía: qué fotos/vídeos subir y con qué nombre
+│   ├── images/             ← fotos reales (gallery-01.jpg, jess-retrato.jpg…)
+│   └── videos/             ← vídeos verticales (hero-reel.mp4, reel-01.mp4…)
+├── fonts/                  ← Fraunces + Figtree (variable, subset latin)
+├── img/                    ← favicons + og-cover.jpg (imagen al compartir)
+├── css/styles.css          ← estilos antiguos (los usan las páginas legales)
+├── js/main.js              ← JS antiguo (lo usan las páginas legales)
+├── aviso-legal.html · privacidad.html · cookies.html
+├── 404.html · robots.txt · sitemap.xml
 ```
 
-## ✅ Antes de publicar — checklist `[CONFIRMAR]`
+## 📸 Activar las fotos y vídeos reales
 
-Busca `[CONFIRMAR]` en el código (hay un resumen comentado al inicio de `index.html`):
+La web es publicable tal cual: cada hueco de imagen/vídeo muestra un
+placeholder elegante de marca hasta que exista el archivo. Para activarlos:
+
+1. Exporta el material de Instagram (o usa los originales, mejor calidad).
+2. Renómbralo según la tabla de `assets/instagram/README-ASSETS.md`
+   (p. ej. `hero-reel.mp4`, `gallery-01.jpg`, `resultado-01-antes.jpg`).
+3. Súbelo a `assets/instagram/images/` o `/videos/` y haz push.
+   Aparece automáticamente; no hay que tocar código.
+
+## ✅ Pendiente antes/después de publicar
 
 | Qué | Dónde |
 |---|---|
-| **Reseñas reales de Google** (ahora hay placeholders) | `index.html` → sección Opiniones, busca "Pega aquí" |
-| **Fotos reales** del centro y tratamientos | busca los comentarios `FOTO REAL` y los bloques "Foto real pendiente" |
-| Instagram activo (¿@beautyjess.es o @beautyjess_oficial?) | `index.html` → footer y JSON-LD del `<head>` |
-| Horario actual | `index.html` → Contacto + footer + JSON-LD |
-| Marcas de aparatología y dermocosmética | secciones Tecnología y Parafarmacia |
-| Datos del titular (razón social, NIF) | `aviso-legal.html` y `privacidad.html` (marcados en amarillo) |
+| **Reseñas reales de Google** (ahora placeholders) | `index.html` → sección Opiniones, busca "Pega aquí" |
+| **Fotos y vídeos reales** | `assets/instagram/` (ver guía) |
+| Datos del titular (razón social, NIF) | `aviso-legal.html` y `privacidad.html` |
 | Imagen para compartir (foto real 1200×630) | sustituir `img/og-cover.jpg` |
 | Coordenadas exactas del local | JSON-LD del `<head>` (`geo`), ahora aproximadas |
 
-> ⚠️ Las reseñas son placeholders **a propósito**: no se ha inventado ningún testimonio. Cópialas palabra por palabra de la ficha de Google Business.
+> ⚠️ Las reseñas son placeholders **a propósito**: no se ha inventado ningún
+> testimonio. Cópialas palabra por palabra de la ficha de Google Business.
 
 ## ✏️ Ediciones habituales
 
 - **Textos**: todo el copy está en `index.html`, en orden de aparición.
-- **Teléfono/WhatsApp**: buscar y reemplazar `637332622` (aparece en enlaces `wa.me` y `tel:`).
-- **Colores de marca**: variables al inicio de `css/styles.css` (`--porcelana`, `--tinta`, `--coral`…).
-- **Añadir un tratamiento**: duplica un `<article class="card">` en la sección Tratamientos y ajusta `data-cat` (`facial`, `corporal`, `laser` o combinados).
-- **Precios**: si se decide mostrarlos, usar el color coral solo para el precio/CTA (regla de marca).
+- **Teléfono/WhatsApp**: buscar y reemplazar `637332622` (enlaces `wa.me` y `tel:`).
+- **Colores de marca**: variables al inicio de `css/style.css` (`--cream`, `--blush`, `--gold`, `--ink`…).
+- **Añadir un tratamiento**: duplica un `<article class="treat">` en la sección
+  Tratamientos y ajusta `data-cat` (`facial`, `corporal`, `laser` o combinados).
 
-## 🚀 Publicar en GitHub Pages (gratis)
+## 🚀 Publicación
 
-1. Crea un repositorio en GitHub (por ejemplo `beautyjess-web`).
-2. Desde esta carpeta:
-   ```bash
-   git init
-   git add .
-   git commit -m "Web BeautyJess v1"
-   git branch -M main
-   git remote add origin https://github.com/TU_USUARIO/beautyjess-web.git
-   git push -u origin main
-   ```
-3. En GitHub: **Settings → Pages → Source: Deploy from a branch → Branch: `main` / `(root)` → Save**.
-4. En 1-2 minutos la web estará en `https://TU_USUARIO.github.io/beautyjess-web/`.
+GitHub Pages sirve la rama `main` (**Settings → Pages → Deploy from a branch →
+`main` / `(root)`**): cada push a `main` despliega automáticamente en 1-2
+minutos. No hay paso de build.
 
 ### Conectar el dominio beautyjess.es
 
@@ -76,12 +74,12 @@ La propagación DNS puede tardar de minutos a 24 h.
 
 ## 🔍 Qué está ya cuidado
 
-- **SEO local**: title/description optimizados, JSON-LD `BeautySalon` con NAP completo, Open Graph + Twitter card, sitemap, robots, canonical, H1 único y H2/H3 con keywords de Roses.
-- **Conversión**: 13 puntos de contacto a WhatsApp con mensaje precargado (y el tratamiento ya escrito en cada card), botón flotante, teléfono clicable.
-- **Accesibilidad AA**: contraste verificado, focus visible, skip-link, navegación por teclado, `prefers-reduced-motion` respetado, ARIA en menú/filtros/acordeón.
-- **Rendimiento**: cero dependencias, fuentes variables locales con `preload` + `font-display: swap`, JS de 2 KB, sin imágenes pesadas.
-- **RGPD**: sin cookies ni peticiones a terceros (lo dice, con verdad, la política de cookies); páginas legales listas para completar.
+- **SEO local**: title/description optimizados, JSON-LD `BeautySalon` con NAP completo, Open Graph + Twitter card, sitemap, robots, canonical, H1 único.
+- **Conversión**: WhatsApp con mensaje precargado en cada tratamiento, doble CTA en hero y cierre, botón flotante, teléfono clicable.
+- **Accesibilidad**: skip-link, focus visible, navegación por teclado (incluido el comparador antes/después), ARIA en menú/filtros, `prefers-reduced-motion` respetado.
+- **Rendimiento**: cero dependencias, fuentes variables locales con `preload` + `font-display: swap`, `loading="lazy"` en imágenes, vídeos con `preload="none"`.
+- **RGPD**: sin cookies ni peticiones a terceros; páginas legales listas para completar.
 
 ---
 
-© 2026 BeautyJess · Roses, Costa Brava. Código y contenidos para uso exclusivo de BeautyJess.
+© 2026 Beauty Jess · Roses, Costa Brava. Código y contenidos para uso exclusivo de Beauty Jess.
