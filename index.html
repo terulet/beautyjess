@@ -2,23 +2,24 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BeautyJess · Centro de Estética Avanzada y Parafarmacia en Roses (Girona)</title>
-<meta name="description" content="Depilación láser de diodo, criolipólisis, radiofrecuencia y tratamientos faciales personalizados en Roses, Costa Brava. Parafarmacia y asesoramiento dermocosmético. Reserva por WhatsApp.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>BeautyJess · Centro de estética avanzada en Roses | Tratamientos faciales y corporales</title>
+<meta name="description" content="Centro de estética avanzada en Roses (Costa Brava): depilación láser, criolipólisis, presoterapia, radiofrecuencia y tratamientos faciales y corporales personalizados, con valoración previa. Reserva por WhatsApp.">
 <link rel="canonical" href="https://beautyjess.es/">
 <meta name="robots" content="index, follow">
-<meta name="theme-color" content="#FAF7F2">
+<meta name="theme-color" content="#FCFAF6">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_ES">
 <meta property="og:url" content="https://beautyjess.es/">
-<meta property="og:title" content="BeautyJess · Estética Avanzada y Parafarmacia en Roses">
-<meta property="og:description" content="Aparatología médico-estética, tratamientos personalizados y dermocosmética en el corazón de Roses. Reserva tu valoración por WhatsApp.">
-<meta property="og:image" content="https://beautyjess.es/img/og-cover.jpg"><!-- [CONFIRMAR] sustituir por foto real del local (1200x630) -->
+<meta property="og:site_name" content="BeautyJess">
+<meta property="og:title" content="BeautyJess · Centro de estética avanzada en Roses">
+<meta property="og:description" content="Tu piel, elevada a su mejor versión. Tratamientos faciales y corporales personalizados en Roses, con tecnología estética avanzada y valoración previa. Reserva por WhatsApp.">
+<meta property="og:image" content="https://beautyjess.es/img/og-cover.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="BeautyJess — Estética avanzada y parafarmacia en Roses">
+<meta property="og:image:alt" content="BeautyJess — centro de estética avanzada en Roses">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://beautyjess.es/img/og-cover.jpg">
 
@@ -28,6 +29,7 @@
 
 <link rel="preload" href="fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/figtree-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="img/hero-retrato.webp" as="image" fetchpriority="high">
 <link rel="stylesheet" href="css/styles.css">
 <link rel="stylesheet" href="css/hero.css">
 
@@ -38,7 +40,7 @@
   "@type": "BeautySalon",
   "name": "BeautyJess",
   "alternateName": "Beauty Centre d'estètica Jess",
-  "description": "Centro de estética avanzada y parafarmacia en Roses (Girona): depilación láser de diodo, criolipólisis, radiofrecuencia, microneedling y tratamientos faciales personalizados.",
+  "description": "Centro de estética avanzada en Roses (Girona): depilación láser, criolipólisis, presoterapia, radiofrecuencia y tratamientos faciales y corporales personalizados, con valoración previa.",
   "url": "https://beautyjess.es/",
   "telephone": "+34637332622",
   "email": "info@beautyjess.es",
@@ -52,6 +54,7 @@
     "postalCode": "17480",
     "addressCountry": "ES"
   },
+  "areaServed": "Roses, Costa Brava",
   "geo": { "@type": "GeoCoordinates", "latitude": 42.2680, "longitude": 3.1660 },
   "hasMap": "https://maps.app.goo.gl/zYHU84jc5R4UHhoX9",
   "sameAs": [
@@ -66,10 +69,9 @@
 }
 </script>
 
-
 <style>
-/* === Imágenes integradas (FLAMA / BeautyJess) === */
-.card .card-photo{display:block;width:calc(100% + 0px);aspect-ratio:4/3;overflow:hidden;border-radius:14px;margin:0 0 1rem;background:#ece6dd}
+/* === Imágenes integradas en cards / tech / tiles === */
+.card .card-photo{display:block;width:100%;aspect-ratio:4/3;overflow:hidden;border-radius:14px;margin:0 0 1rem;background:#ece6dd}
 .card .card-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
 .card:hover .card-photo img{transform:scale(1.05)}
 .tech .tech-photo{display:block;width:100%;aspect-ratio:3/2;overflow:hidden;border-radius:14px;margin:0 0 1.1rem;background:rgba(255,255,255,.06)}
@@ -79,26 +81,12 @@
 .tile.has-photo{position:relative;overflow:hidden}
 .tile.has-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
 .tile.has-photo .tile-label{position:relative;z-index:2}
-.tile.has-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(20,30,38,.55),rgba(20,30,38,0) 55%);z-index:1}
-.hero-photo{margin-top:1.5rem;border-radius:18px;overflow:hidden;max-width:420px;aspect-ratio:4/5}
-.hero-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.tile.has-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(38,32,28,.6),rgba(38,32,28,0) 55%);z-index:1}
 </style>
 
 </head>
 <body>
 <a class="skip" href="#main">Saltar al contenido</a>
-
-<!-- ===================================================================
-  NOTAS PARA PUBLICAR — datos [CONFIRMAR] con la propietaria:
-  1) Instagram activo: ¿@beautyjess.es o @beautyjess_oficial?
-  2) Horario exacto actual (tabla de contacto y JSON-LD).
-  3) Servicios completos y si se muestran precios.
-  4) Marcas de aparatología y de dermocosmética (sección Tecnología y Parafarmacia).
-  5) Nombre/formación reales para "El centro" — no inventar titulaciones.
-  6) Reseñas REALES de Google → sección Opiniones (ahora placeholders).
-  7) Fotos reales del local/cabinas → buscar comentarios "FOTO REAL".
-  8) Páginas legales creadas (aviso-legal / privacidad / cookies): completar datos del titular.
-==================================================================== -->
 
 <header class="site-header" id="top">
   <div class="container header-inner">
@@ -111,85 +99,65 @@
     </button>
     <nav class="nav" id="site-nav" aria-label="Navegación principal">
       <a href="#tratamientos">Tratamientos</a>
-      <a href="#tecnologia">Tecnología</a>
-      <a href="#parafarmacia">Parafarmacia</a>
       <a href="#centro">El centro</a>
-      <a href="#opiniones">Opiniones</a>
+      <a href="#tecnologia">Tecnología</a>
+      <a href="#resultados">Experiencias</a>
       <a href="#contacto">Contacto</a>
-      <a class="btn btn-coral btn-sm" href="https://wa.me/34637332622?text=Hola!%20Quiero%20reservar%20una%20cita%20en%20BeautyJess.%20Me%20interesa%3A%20" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.4 7.5L4 21l1.6-4.4A8.5 8.5 0 1 1 21 12z"/><circle cx="9" cy="12" r=".9" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r=".9" fill="currentColor" stroke="none"/><circle cx="15" cy="12" r=".9" fill="currentColor" stroke="none"/></svg>
-        Reservar por WhatsApp
+      <a class="btn btn-coral btn-sm" href="https://wa.me/34637332622?text=Hola!%20Me%20gustar%C3%ADa%20reservar%20una%20valoraci%C3%B3n%20en%20BeautyJess." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.4 7.5L4 21l1.6-4.4A8.5 8.5 0 1 1 21 12z"/></svg>
+        Reservar valoración
       </a>
     </nav>
   </div>
 </header>
 <main id="main">
 
-<!-- ========== HERO INTERACTIVO (módulo bjhero · css/hero.css + js/hero.js) ========== -->
-<section class="bjhero" id="inicio" aria-label="Presentación de BeautyJess: belleza natural y tecnología avanzada">
-  <div class="bjhero__stage">
-    <!-- Capas decorativas (no aportan contenido; aria-hidden) -->
-    <div class="bjhero__bg" aria-hidden="true"></div>
-    <div class="bjhero__skin" aria-hidden="true"></div>
-    <div class="bjhero__glow" aria-hidden="true"></div>
-    <canvas class="bjhero__particles" aria-hidden="true"></canvas>
+<!-- ========== HERO EDITORIAL (módulo bjhero · css/hero.css + js/hero.js) ========== -->
+<section class="bjhero" id="inicio" aria-label="BeautyJess, centro de estética avanzada en Roses">
+  <div class="bjhero__halo bjhero__halo--1" aria-hidden="true"></div>
+  <div class="bjhero__halo bjhero__halo--2" aria-hidden="true"></div>
 
-    <div class="container bjhero__inner">
-      <!-- Texto real en el DOM (SEO + accesibilidad), no sólo en canvas -->
-      <div class="bjhero__copy">
-        <span class="bjhero__eyebrow">Clínica estética premium &middot; Roses</span>
-        <h1 class="bjhero__title">Belleza natural,<br><span class="grad">tecnología avanzada</span></h1>
-        <p class="bjhero__sub">Tratamientos estéticos personalizados en un espacio premium pensado para ti.</p>
-        <div class="bjhero__cta">
-          <a class="bjbtn bjbtn--primary" href="https://wa.me/34637332622?text=Hola!%20Quiero%20reservar%20un%20diagn%C3%B3stico%20en%20BeautyJess." target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.4 7.5L4 21l1.6-4.4A8.5 8.5 0 1 1 21 12z"/></svg>
-            Reservar diagnóstico
-          </a>
-          <a class="bjbtn bjbtn--glass" href="#tratamientos">Ver tratamientos</a>
-        </div>
+  <div class="container bjhero__inner">
+    <div class="bjhero__copy">
+      <span class="bjhero__eyebrow">Centro de estética avanzada &middot; Roses</span>
+      <h1 class="bjhero__title">Tu piel, elevada a <span class="grad">su mejor versión.</span></h1>
+      <p class="bjhero__sub">Tratamientos faciales y corporales en Roses con un enfoque personalizado, tecnología estética avanzada y una experiencia cuidada al detalle.</p>
+      <div class="bjhero__cta">
+        <a class="bjbtn bjbtn--primary" href="https://wa.me/34637332622?text=Hola!%20Me%20gustar%C3%ADa%20reservar%20una%20valoraci%C3%B3n%20en%20BeautyJess." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.4 7.5L4 21l1.6-4.4A8.5 8.5 0 1 1 21 12z"/></svg>
+          Reservar valoración
+        </a>
+        <a class="bjbtn bjbtn--glass" href="#tratamientos">Ver tratamientos</a>
       </div>
-
-      <!-- Panel de vidrio con revelado tipo antes/después (efecto de luz ILUSTRATIVO) -->
-      <div class="bjhero__visual">
-        <figure class="bjglass bjreveal">
-          <!-- REEMPLAZAR IMÁGENES: usa la misma foto (o dos variantes de la misma toma).
-               .bjreveal__base = lado luminoso · .bjreveal__top = lado mate. Ratio 4:5. -->
-          <div class="bjreveal__media" role="group" aria-label="Comparador de luz, ilustrativo">
-            <img class="bjreveal__base" src="img/hero-retrato.webp" alt="Piel luminosa — efecto de luz ilustrativo" width="760" height="950" fetchpriority="high" decoding="async">
-            <img class="bjreveal__top"  src="img/hero-retrato.webp" alt="" aria-hidden="true" width="760" height="950" decoding="async">
-            <span class="bjreveal__tag bjreveal__tag--l">Mate</span>
-            <span class="bjreveal__tag bjreveal__tag--r">Luz</span>
-            <span class="bjreveal__handle" role="slider" tabindex="0"
-                  aria-label="Ajustar el efecto de luz" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"></span>
-          </div>
-          <figcaption class="bjreveal__cap">Simulación visual del acabado de la piel. No representa resultados de un tratamiento real.</figcaption>
-        </figure>
-      </div>
-
-      <!-- Tarjetas de servicios flotantes (aparecen al hacer scroll) -->
-      <ul class="bjhero__cards">
-        <li><a class="bjcard" style="--i:0" href="#tratamientos">
-          <!-- REEMPLAZAR: miniatura del servicio (cuadrada) -->
-          <span class="bjcard__thumb"><img src="img/trat-limpieza-facial.webp" alt="" loading="lazy" decoding="async" width="54" height="54"></span>
-          <span class="bjcard__t">Facial Care<span class="bjcard__s">Higiene y luminosidad</span></span>
-        </a></li>
-        <li><a class="bjcard" style="--i:1" href="#tratamientos">
-          <span class="bjcard__thumb"><img src="img/trat-depilacion-laser.webp" alt="" loading="lazy" decoding="async" width="54" height="54"></span>
-          <span class="bjcard__t">Laser Hair Removal<span class="bjcard__s">Depilación láser de diodo</span></span>
-        </a></li>
-        <li><a class="bjcard" style="--i:2" href="#tratamientos">
-          <span class="bjcard__thumb"><img src="img/trat-criolipolisis.webp" alt="" loading="lazy" decoding="async" width="54" height="54"></span>
-          <span class="bjcard__t">Body Treatments<span class="bjcard__s">Remodelación corporal</span></span>
-        </a></li>
-        <li><a class="bjcard" style="--i:3" href="#tratamientos">
-          <span class="bjcard__thumb"><img src="img/trat-microneedling.webp" alt="" loading="lazy" decoding="async" width="54" height="54"></span>
-          <span class="bjcard__t">Skin Rituals<span class="bjcard__s">Rituales de piel</span></span>
-        </a></li>
+      <ul class="bjhero__trust">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 8"/></svg>Atención personalizada</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 8"/></svg>Tecnología avanzada</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 8"/></svg>WhatsApp directo</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 8"/></svg>En Roses</li>
       </ul>
+    </div>
 
-      <a class="bjhero__cue" href="#tratamientos" aria-label="Desplázate para descubrir los tratamientos"><span></span></a>
+    <div class="bjhero__visual">
+      <!-- REEMPLAZAR: imagen editorial vertical 4:5 (rostro / piel luminosa / cabina). -->
+      <figure class="bjframe">
+        <img src="img/hero-retrato.webp" alt="Tratamiento facial personalizado en BeautyJess, Roses" width="760" height="950" fetchpriority="high" decoding="async">
+      </figure>
+      <span class="bjpill bjpill--1">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3s6 6.6 6 11a6 6 0 0 1-12 0c0-4.4 6-11 6-11z"/></svg>
+        Diagnóstico personalizado
+      </span>
+      <span class="bjpill bjpill--2">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L6 13h5l-2 9 9-12h-5l2-8z"/></svg>
+        Tecnología estética avanzada
+      </span>
+      <span class="bjpill bjpill--3">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6 7-11a7 7 0 1 0-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+        Cita previa en Roses
+      </span>
     </div>
   </div>
+
+  <div class="bjhero__fade" aria-hidden="true"></div>
 </section>
 
 <!-- ========== BARRA DE CONFIANZA ========== -->
@@ -197,15 +165,15 @@
   <div class="container trust-inner">
     <div class="trust-item">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 8"/></svg>
-      Aparatología médico-estética
+      Atención personalizada
     </div>
     <div class="trust-item">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 8"/></svg>
-      Diagnóstico personalizado
+      Tecnología estética avanzada
     </div>
     <div class="trust-item">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 8"/></svg>
-      Parafarmacia integrada
+      Valoración previa sin compromiso
     </div>
     <div class="trust-item">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 8"/></svg>
@@ -219,8 +187,8 @@
   <div class="container">
     <div class="section-head reveal">
       <span class="eyebrow">Tratamientos</span>
-      <h2>Estética avanzada en Roses, un protocolo para cada piel</h2>
-      <p class="lead">Cada piel cuenta una historia distinta. Por eso empezamos siempre igual: escuchándola. Valoración previa, plan a medida y seguimiento real.</p>
+      <h2>Tratamientos faciales y corporales en Roses</h2>
+      <p class="lead">Cada piel y cada cuerpo responden de forma distinta. Por eso empezamos siempre igual: con una valoración previa para diseñar un plan personalizado y un seguimiento profesional, paso a paso.</p>
     </div>
 
     <div class="tabs reveal" role="group" aria-label="Filtrar tratamientos">
@@ -232,220 +200,168 @@
 
     <div class="cards">
       <article class="card reveal" data-cat="laser" data-d="0">
-        <div class="card-photo"><img src="img/trat-depilacion-laser.webp" alt="Depilación láser de diodo en BeautyJess Roses" loading="lazy" width="600" height="450"></div><h3>Depilación láser de diodo</h3>
-        <p>Piel suave de forma duradera, en sesiones rápidas y para todo tipo de piel. Plan personalizado por zonas.</p>
+        <div class="card-photo"><img src="img/trat-depilacion-laser.webp" alt="Depilación láser de diodo en BeautyJess, Roses" loading="lazy" width="600" height="450"></div>
+        <h3>Depilación láser</h3>
+        <p>Tratamiento de depilación láser de diodo para reducir progresivamente el vello, con protocolo adaptado a cada zona y tipo de piel tras una valoración previa.</p>
         <div class="meta"><span>&asymp; 15&ndash;45 min</span><span>Láser</span></div>
-        <a class="book" href="https://wa.me/34637332622?text=Hola!%20Quiero%20reservar%20una%20cita%20en%20BeautyJess.%20Me%20interesa%3A%20Depilaci%C3%B3n%20l%C3%A1ser%20de%20diodo" target="_blank" rel="noopener">Reservar valoración <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
+        <a class="book" href="https://wa.me/34637332622?text=Hola!%20Quiero%20consultar%20el%20tratamiento%20de%20Depilaci%C3%B3n%20l%C3%A1ser%20en%20BeautyJess." target="_blank" rel="noopener">Consultar tratamiento <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
       </article>
 
       <article class="card reveal" data-cat="corporal" data-d="60">
-        <div class="card-photo"><img src="img/trat-criolipolisis.webp" alt="Criolipólisis para grasa localizada en Roses" loading="lazy" width="600" height="450"></div><h3>Criolipólisis</h3>
-        <p>Reduce grasa localizada sin cirugía: frío controlado donde la dieta no llega.</p>
+        <div class="card-photo"><img src="img/trat-criolipolisis.webp" alt="Criolipólisis, tratamiento corporal en Roses" loading="lazy" width="600" height="450"></div>
+        <h3>Criolipólisis</h3>
+        <p>Tratamiento corporal orientado a trabajar zonas localizadas mediante frío controlado, siempre tras valoración previa y como complemento a unos hábitos saludables.</p>
         <div class="meta"><span>&asymp; 45&ndash;60 min</span><span>Corporal</span></div>
-        <a class="book" href="https://wa.me/34637332622?text=Hola!%20Quiero%20reservar%20una%20cita%20en%20BeautyJess.%20Me%20interesa%3A%20Criolip%C3%B3lisis" target="_blank" rel="noopener">Reservar valoración <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
+        <a class="book" href="https://wa.me/34637332622?text=Hola!%20Quiero%20consultar%20el%20tratamiento%20de%20Criolip%C3%B3lisis%20en%20BeautyJess." target="_blank" rel="noopener">Consultar tratamiento <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
       </article>
 
-      <article class="card reveal" data-cat="facial corporal" data-d="120">
-        <div class="card-photo"><img src="img/trat-radiofrecuencia.webp" alt="Radiofrecuencia facial y corporal en Roses" loading="lazy" width="600" height="450"></div><h3>Radiofrecuencia</h3>
-        <p>Reafirma y redensifica. Efecto tensor progresivo en rostro y cuerpo, sin tiempo de recuperación.</p>
+      <article class="card reveal" data-cat="corporal" data-d="120">
+        <div class="card-photo"><img src="img/tech-aparatologia.webp" alt="Presoterapia corporal en BeautyJess, Roses" loading="lazy" width="600" height="450"></div>
+        <h3>Presoterapia</h3>
+        <p>Tratamiento corporal de presión secuencial orientado a favorecer la sensación de ligereza y el bienestar de las piernas, dentro de un plan personalizado.</p>
+        <div class="meta"><span>&asymp; 30&ndash;45 min</span><span>Corporal</span></div>
+        <a class="book" href="https://wa.me/34637332622?text=Hola!%20Quiero%20consultar%20el%20tratamiento%20de%20Presoterapia%20en%20BeautyJess." target="_blank" rel="noopener">Consultar tratamiento <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
+      </article>
+
+      <article class="card reveal" data-cat="facial corporal" data-d="0">
+        <div class="card-photo"><img src="img/trat-radiofrecuencia.webp" alt="Radiofrecuencia facial y corporal en Roses" loading="lazy" width="600" height="450"></div>
+        <h3>Radiofrecuencia facial y corporal</h3>
+        <p>Tratamiento orientado a la firmeza y el confort de la piel en rostro y cuerpo, adaptado a cada caso tras diagnóstico previo, sin tiempo de recuperación.</p>
         <div class="meta"><span>&asymp; 30&ndash;45 min</span><span>Facial &middot; Corporal</span></div>
-        <a class="book" href="https://wa.me/34637332622?text=Hola!%20Quiero%20reservar%20una%20cita%20en%20BeautyJess.%20Me%20interesa%3A%20Radiofrecuencia" target="_blank" rel="noopener">Reservar valoración <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
-      </article>
-
-      <article class="card reveal" data-cat="facial" data-d="180">
-        <div class="card-photo"><img src="img/trat-microneedling.webp" alt="Tratamiento de microneedling facial en Roses" loading="lazy" width="600" height="450"></div><h3>Microneedling</h3>
-        <p>Activa tu propio colágeno: textura más fina, poros y marcas atenuadas.</p>
-        <div class="meta"><span>&asymp; 45 min</span><span>Facial</span></div>
-        <a class="book" href="https://wa.me/34637332622?text=Hola!%20Quiero%20reservar%20una%20cita%20en%20BeautyJess.%20Me%20interesa%3A%20Microneedling" target="_blank" rel="noopener">Reservar valoración <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
-      </article>
-
-      <article class="card reveal" data-cat="facial" data-d="0">
-        <div class="card-photo"><img src="img/trat-fotorrejuvenecimiento.webp" alt="Fotorrejuvenecimiento facial IPL en Roses" loading="lazy" width="600" height="450"></div><h3>Fotorrejuvenecimiento</h3>
-        <p>Unifica el tono y atenúa los signos del sol. Luz que devuelve luz.</p>
-        <div class="meta"><span>&asymp; 30 min</span><span>Facial</span></div>
-        <a class="book" href="https://wa.me/34637332622?text=Hola!%20Quiero%20reservar%20una%20cita%20en%20BeautyJess.%20Me%20interesa%3A%20Fotorrejuvenecimiento" target="_blank" rel="noopener">Reservar valoración <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
+        <a class="book" href="https://wa.me/34637332622?text=Hola!%20Quiero%20consultar%20el%20tratamiento%20de%20Radiofrecuencia%20en%20BeautyJess." target="_blank" rel="noopener">Consultar tratamiento <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
       </article>
 
       <article class="card reveal" data-cat="facial" data-d="60">
-        <div class="card-photo"><img src="img/trat-dermaplaning.webp" alt="Dermaplaning, exfoliación facial en Roses" loading="lazy" width="600" height="450"></div><h3>Dermaplaning</h3>
-        <p>Exfoliación precisa que deja la piel lisa, luminosa y lista para absorber tus activos.</p>
-        <div class="meta"><span>&asymp; 30 min</span><span>Facial</span></div>
-        <a class="book" href="https://wa.me/34637332622?text=Hola!%20Quiero%20reservar%20una%20cita%20en%20BeautyJess.%20Me%20interesa%3A%20Dermaplaning" target="_blank" rel="noopener">Reservar valoración <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
-      </article>
-
-      <article class="card reveal" data-cat="facial" data-d="120">
-        <div class="card-photo"><img src="img/trat-limpieza-facial.webp" alt="Limpieza facial profunda en BeautyJess Roses" loading="lazy" width="600" height="450"></div><h3>Limpieza facial profunda</h3>
-        <p>El básico que lo cambia todo: piel limpia, oxigenada y equilibrada.</p>
+        <div class="card-photo"><img src="img/trat-limpieza-facial.webp" alt="Limpieza facial profunda personalizada en Roses" loading="lazy" width="600" height="450"></div>
+        <h3>Limpieza facial</h3>
+        <p>Higiene facial profunda y personalizada para una piel cuidada, luminosa y equilibrada, adaptada a distintos tipos de piel tras diagnóstico previo.</p>
         <div class="meta"><span>&asymp; 60 min</span><span>Facial</span></div>
-        <a class="book" href="https://wa.me/34637332622?text=Hola!%20Quiero%20reservar%20una%20cita%20en%20BeautyJess.%20Me%20interesa%3A%20Limpieza%20facial%20profunda" target="_blank" rel="noopener">Reservar valoración <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
+        <a class="book" href="https://wa.me/34637332622?text=Hola!%20Quiero%20consultar%20el%20tratamiento%20de%20Limpieza%20facial%20en%20BeautyJess." target="_blank" rel="noopener">Consultar tratamiento <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
       </article>
 
-      <article class="card reveal" data-cat="facial" data-d="180">
-        <div class="card-photo"><img src="img/trat-anti-acne.webp" alt="Facial anti-acné personalizado en Roses" loading="lazy" width="600" height="450"></div><h3>Facial anti-acné</h3>
-        <p>Protocolo específico para pieles con brotes: calma, purifica y previene marcas.</p>
-        <div class="meta"><span>&asymp; 60 min</span><span>Facial</span></div>
-        <a class="book" href="https://wa.me/34637332622?text=Hola!%20Quiero%20reservar%20una%20cita%20en%20BeautyJess.%20Me%20interesa%3A%20Facial%20anti-acn%C3%A9" target="_blank" rel="noopener">Reservar valoración <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
+      <article class="card reveal" data-cat="facial corporal laser" data-d="120">
+        <div class="card-photo"><img src="img/centro-cabina.webp" alt="Tratamientos personalizados en la cabina de BeautyJess, Roses" loading="lazy" width="600" height="450"></div>
+        <h3>Tratamientos personalizados</h3>
+        <p>Diseñamos un plan a tu medida combinando los tratamientos más adecuados para tu piel o tu cuerpo, con valoración previa y seguimiento profesional.</p>
+        <div class="meta"><span>A tu medida</span><span>Facial &middot; Corporal</span></div>
+        <a class="book" href="https://wa.me/34637332622?text=Hola!%20Me%20gustar%C3%ADa%20un%20plan%20de%20tratamientos%20personalizado%20en%20BeautyJess." target="_blank" rel="noopener">Consultar tratamiento <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
       </article>
-    </div>
-  </div>
-</section>
-<!-- ========== TECNOLOGÍA ========== -->
-<section class="section section--dark" id="tecnologia">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">Tecnología</span>
-      <h2>Tecnología de clínica, trato de siempre.</h2>
-      <p class="lead">Los mismos equipos que encontrarías en una gran clínica de estética, sin salir de Roses. Cada tratamiento empieza con una valoración que descarta contraindicaciones y ajusta el protocolo a tu piel.</p>
-    </div>
-    <!-- [CONFIRMAR] Añadir aquí marcas y modelos de los equipos: da mucha credibilidad -->
-    <div class="tech-grid">
-      <div class="tech reveal" data-d="0">
-        <span class="kw">Depilación láser en Roses</span>
-        <div class="tech-photo"><img src="img/tech-laser.webp" alt="Equipo de depilación láser de diodo en Roses" loading="lazy" width="600" height="400"></div>
-        <h3>Láser de diodo</h3>
-        <p>El estándar de la depilación médico-estética: energía precisa al folículo con la piel protegida y refrigerada. Sesiones rápidas y protocolos adaptados a cada fototipo.</p>
-      </div>
-      <div class="tech reveal" data-d="70">
-        <span class="kw">Criolipólisis en Roses</span>
-        <div class="tech-photo"><img src="img/tech-aparatologia.webp" alt="Aparatología de criolipólisis en BeautyJess Roses" loading="lazy" width="600" height="400"></div>
-        <h3>Criolipólisis</h3>
-        <p>Frío controlado que actúa sobre la grasa localizada resistente, sin cirugía ni agujas. El cuerpo elimina las células tratadas de forma natural y progresiva.</p>
-      </div>
-      <div class="tech reveal" data-d="140">
-        <span class="kw">Radiofrecuencia facial y corporal</span>
-        <div class="tech-photo"><img src="img/tech-aparatologia.webp" alt="Equipo de radiofrecuencia facial y corporal en Roses" loading="lazy" width="600" height="400"></div>
-        <h3>Radiofrecuencia</h3>
-        <p>Calor profundo que estimula colágeno y elastina: firmeza progresiva en rostro y cuerpo, sin tiempo de recuperación. Ideal como tratamiento de mantenimiento.</p>
-      </div>
-      <div class="tech reveal" data-d="210">
-        <span class="kw">Rejuvenecimiento de la piel</span>
-        <div class="tech-photo"><img src="img/tech-aparatologia.webp" alt="Equipos de microneedling y fotorrejuvenecimiento en Roses" loading="lazy" width="600" height="400"></div>
-        <h3>Microneedling &amp; fotorrejuvenecimiento</h3>
-        <p>Microcanales y luz que reactivan la piel desde dentro: textura, tono y luminosidad. Resultados graduales, naturales y acumulativos sesión a sesión.</p>
-      </div>
-    </div>
-    <div class="tech-cta reveal">
-      <a class="btn btn-light" href="https://wa.me/34637332622?text=Hola!%20Quiero%20reservar%20una%20cita%20en%20BeautyJess.%20Me%20interesa%3A%20Valoraci%C3%B3n%20personalizada" target="_blank" rel="noopener">Reservar valoración</a>
-      <span class="hint">Sin compromiso: estudiamos tu caso y te explicamos opciones con calma.</span>
-    </div>
-  </div>
-</section>
-
-<!-- ========== PARAFARMACIA ========== -->
-<section class="section section--arena" id="parafarmacia">
-  <div class="container para-grid">
-    <div class="reveal">
-      <span class="eyebrow">Parafarmacia</span>
-      <h2>El tratamiento sigue en casa.</h2>
-      <p class="lead para-lead">La misma profesional que conoce tu piel te recomienda la rutina exacta: ni más pasos de los necesarios, ni productos que no te van. Dermocosmética seleccionada y consejo honesto, sin marear.</p>
-    </div>
-    <div class="para-panel reveal" data-d="80">
-      <h3>Te asesoramos en&hellip;</h3>
-      <!-- [CONFIRMAR] Marcas de dermocosmética que se trabajan: añadir logos o nombres aquí -->
-      <div class="chips">
-        <span class="chip">Protección solar</span>
-        <span class="chip">Antiedad</span>
-        <span class="chip">Pieles sensibles</span>
-        <span class="chip">Acné e imperfecciones</span>
-        <span class="chip">Manchas</span>
-        <span class="chip">Hidratación</span>
-      </div>
-      <p class="para-note">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v.5M12 11.5V16"/></svg>
-        Para la parafarmacia no necesitas cita: pásate en horario de apertura. Para tratamientos en cabina, reserva por WhatsApp.
-      </p>
     </div>
   </div>
 </section>
 
 <!-- ========== EL CENTRO ========== -->
-<section class="section" id="centro">
+<section class="section section--arena" id="centro">
   <div class="container centro-grid">
     <div class="centro-text reveal">
       <span class="eyebrow">El centro</span>
-      <h2>Detrás de BeautyJess</h2>
+      <h2>Centro de estética avanzada en Roses</h2>
       <!-- [CONFIRMAR] Nombre completo, formación y trayectoria reales. No inventar titulaciones. -->
-      <p>Soy Jess. Abrí BeautyJess en Roses con una idea sencilla: que no hiciera falta salir del Empordà para acceder a la estética avanzada de una gran clínica, sin perder el trato cercano de siempre.</p>
-      <p>Aquí no hay protocolos en cadena. Hay una valoración honesta, un plan a tu medida y un seguimiento de verdad, tratamiento a tratamiento. Y cuando sales por la puerta, te llevas claro qué hacer en casa, con la rutina justa de la parafarmacia.</p>
+      <p>Detrás de BeautyJess hay una forma de entender la estética basada en la confianza, la naturalidad y el cuidado personalizado. Soy Jess, y abrí este centro en Roses para acercar la estética avanzada al Empordà sin perder el trato cercano de siempre.</p>
+      <p>Aquí no hay protocolos en cadena: hay una valoración honesta, un plan a tu medida y un seguimiento real, tratamiento a tratamiento. Y cuando sales por la puerta, te llevas claro cómo cuidar tu piel en casa.</p>
+      <ul class="lead-points">
+        <li>Trato individual y cercano, sin prisas.</li>
+        <li>Valoración previa antes de cada tratamiento.</li>
+        <li>Seguimiento profesional y consejo honesto.</li>
+        <li>Estética avanzada y bienestar, en el corazón de Roses.</li>
+      </ul>
       <p class="firma">Porque no hay dos pieles iguales.</p>
     </div>
-    <figure class="ph has-photo reveal" data-d="100" role="img" aria-label="Equipo de BeautyJess en su centro de Roses">
-      <img src="img/centro-equipo.webp" alt="Equipo profesional de BeautyJess, centro de estética avanzada en Roses" loading="lazy" width="800" height="800">
+    <figure class="ph has-photo reveal" data-d="100" role="img" aria-label="El equipo de BeautyJess en su centro de Roses">
+      <img src="img/centro-equipo.webp" alt="Equipo de BeautyJess, centro de estética avanzada en Roses" loading="lazy" width="800" height="800">
     </figure>
   </div>
 </section>
 
-<!-- ========== RESULTADOS ========== -->
+<!-- ========== TECNOLOGÍA ========== -->
+<section class="section section--dark" id="tecnologia">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Tecnología</span>
+      <h2>No se trata solo de aparatología.</h2>
+      <p class="lead">Se trata de elegir el tratamiento adecuado para cada persona. Contamos con tecnología estética avanzada, pero lo que marca la diferencia es el diagnóstico, la personalización y el seguimiento. Cada protocolo empieza con una valoración que adapta el plan a tu piel y descarta contraindicaciones.</p>
+    </div>
+    <div class="tech-grid">
+      <div class="tech reveal" data-d="0">
+        <span class="kw">Depilación láser en Roses</span>
+        <div class="tech-photo"><img src="img/tech-laser.webp" alt="Equipo de depilación láser de diodo en Roses" loading="lazy" width="600" height="400"></div>
+        <h3>Láser de diodo</h3>
+        <p>Energía precisa orientada al folículo, con la piel protegida y refrigerada. Sesiones rápidas y protocolos adaptados a cada fototipo tras valoración previa.</p>
+      </div>
+      <div class="tech reveal" data-d="70">
+        <span class="kw">Tratamientos corporales en Roses</span>
+        <div class="tech-photo"><img src="img/tech-aparatologia.webp" alt="Aparatología estética avanzada para tratamientos corporales en Roses" loading="lazy" width="600" height="400"></div>
+        <h3>Criolipólisis y presoterapia</h3>
+        <p>Tecnología orientada a trabajar zonas localizadas y a favorecer el bienestar corporal, siempre dentro de un plan personalizado y como complemento a hábitos saludables.</p>
+      </div>
+      <div class="tech reveal" data-d="140">
+        <span class="kw">Radiofrecuencia facial y corporal</span>
+        <div class="tech-photo"><img src="img/trat-radiofrecuencia.webp" alt="Equipo de radiofrecuencia facial y corporal en Roses" loading="lazy" width="600" height="400"></div>
+        <h3>Radiofrecuencia</h3>
+        <p>Orientada a la firmeza y el confort de la piel en rostro y cuerpo. Una opción cómoda como tratamiento de mantenimiento, adaptada a cada caso.</p>
+      </div>
+      <div class="tech reveal" data-d="210">
+        <span class="kw">Cuidado de la piel</span>
+        <div class="tech-photo"><img src="img/trat-limpieza-facial.webp" alt="Tratamientos faciales personalizados en Roses" loading="lazy" width="600" height="400"></div>
+        <h3>Faciales personalizados</h3>
+        <p>Higiene profunda y protocolos faciales pensados para tu tipo de piel. Resultados graduales y naturales, con consejo para mantenerlos en casa.</p>
+      </div>
+    </div>
+    <div class="tech-cta reveal">
+      <a class="btn btn-light" href="https://wa.me/34637332622?text=Hola!%20Me%20gustar%C3%ADa%20una%20valoraci%C3%B3n%20personalizada%20en%20BeautyJess." target="_blank" rel="noopener">Solicitar diagnóstico</a>
+      <span class="hint">Sin compromiso: estudiamos tu caso y te explicamos opciones con calma.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ========== EXPERIENCIAS / RESULTADOS / SIMULACIONES ========== -->
 <section class="section section--tight" id="resultados">
   <div class="container">
     <div class="section-head reveal">
-      <span class="eyebrow">Resultados</span>
-      <h2>El resultado se ve. Y se nota.</h2>
+      <span class="eyebrow">Experiencias</span>
+      <h2>El cuidado se nota.</h2>
+      <p class="lead">Una muestra del tipo de cuidado y acabado que trabajamos en el centro. Las imágenes son orientativas y no representan el resultado garantizado de ningún tratamiento.</p>
     </div>
-    <!-- [CONFIRMAR] Sustituir por fotos reales de tratamientos / antes-después CON consentimiento firmado de las clientas -->
     <div class="tiles">
-      <div class="tile tile-1 has-photo reveal" data-d="0"><img src="img/resultado-depilacion.webp" alt="Resultado de depilación láser en piernas, BeautyJess Roses" loading="lazy" width="512" height="640">
+      <div class="tile tile-1 has-photo reveal" data-d="0"><img src="img/resultado-depilacion.webp" alt="Cuidado de la piel tras depilación láser, imagen orientativa" loading="lazy" width="512" height="640">
+        <span class="sim">Simulación</span>
         <span class="tile-label">Depilación láser &middot; piernas</span>
       </div>
-      <div class="tile tile-2 has-photo reveal" data-d="70"><img src="img/resultado-radiofrecuencia.webp" alt="Resultado de radiofrecuencia facial en BeautyJess Roses" loading="lazy" width="512" height="640">
+      <div class="tile tile-2 has-photo reveal" data-d="70"><img src="img/resultado-radiofrecuencia.webp" alt="Cuidado facial con radiofrecuencia, imagen orientativa" loading="lazy" width="512" height="640">
+        <span class="sim">Simulación</span>
         <span class="tile-label">Radiofrecuencia facial</span>
       </div>
-      <div class="tile tile-3 has-photo reveal" data-d="140"><img src="img/resultado-limpieza.webp" alt="Resultado de limpieza facial profunda en BeautyJess Roses" loading="lazy" width="512" height="640">
-        <span class="tile-label">Limpieza facial profunda</span>
+      <div class="tile tile-3 has-photo reveal" data-d="140"><img src="img/resultado-limpieza.webp" alt="Piel luminosa tras limpieza facial, imagen orientativa" loading="lazy" width="512" height="640">
+        <span class="sim">Simulación</span>
+        <span class="tile-label">Limpieza facial</span>
       </div>
     </div>
-    <p class="disclaimer reveal">Resultados orientativos: cada piel responde de forma distinta. Por eso toda primera visita incluye una valoración personalizada, donde revisamos también posibles contraindicaciones.</p>
+    <p class="disclaimer reveal">Simulación visual orientativa. No representa resultados reales de una clienta. Cada piel y cada cuerpo responden de forma distinta: la valoración previa permite adaptar el tratamiento a cada caso.</p>
   </div>
 </section>
-<!-- ========== OPINIONES ========== -->
+
+<!-- ========== LO QUE DICEN NUESTRAS CLIENTAS ========== -->
 <section class="section section--arena" id="opiniones">
   <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">Opiniones</span>
-      <h2>Lo que cuentan en Google</h2>
+    <div class="section-head reveal" style="text-align:center;margin-inline:auto">
+      <span class="eyebrow">Experiencias BeautyJess</span>
+      <h2>Lo que dicen nuestras clientas</h2>
     </div>
-    <!-- [CONFIRMAR] Sustituir los tres textos por reseñas REALES copiadas palabra por palabra
-         de la ficha de Google Business. No inventar nunca testimonios. -->
-    <div class="reviews">
-      <article class="review reveal" data-d="0">
-        <div class="stars" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3.4l2.5 5.3 5.8.8-4.2 4.1 1 5.7L12 16.6 6.9 19.3l1-5.7-4.2-4.1 5.8-.8z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3.4l2.5 5.3 5.8.8-4.2 4.1 1 5.7L12 16.6 6.9 19.3l1-5.7-4.2-4.1 5.8-.8z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3.4l2.5 5.3 5.8.8-4.2 4.1 1 5.7L12 16.6 6.9 19.3l1-5.7-4.2-4.1 5.8-.8z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3.4l2.5 5.3 5.8.8-4.2 4.1 1 5.7L12 16.6 6.9 19.3l1-5.7-4.2-4.1 5.8-.8z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3.4l2.5 5.3 5.8.8-4.2 4.1 1 5.7L12 16.6 6.9 19.3l1-5.7-4.2-4.1 5.8-.8z"/></svg>
-        </div>
-        <span class="sr-only">Valoración: 5 de 5 estrellas</span>
-        <blockquote><span class="placeholder">[ Pega aquí, palabra por palabra, una reseña real de tu ficha de Google. ]</span></blockquote>
-        <cite>Nombre A. <span>&middot; Reseña de Google</span></cite>
-      </article>
-      <article class="review reveal" data-d="70">
-        <div class="stars" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3.4l2.5 5.3 5.8.8-4.2 4.1 1 5.7L12 16.6 6.9 19.3l1-5.7-4.2-4.1 5.8-.8z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3.4l2.5 5.3 5.8.8-4.2 4.1 1 5.7L12 16.6 6.9 19.3l1-5.7-4.2-4.1 5.8-.8z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3.4l2.5 5.3 5.8.8-4.2 4.1 1 5.7L12 16.6 6.9 19.3l1-5.7-4.2-4.1 5.8-.8z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3.4l2.5 5.3 5.8.8-4.2 4.1 1 5.7L12 16.6 6.9 19.3l1-5.7-4.2-4.1 5.8-.8z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3.4l2.5 5.3 5.8.8-4.2 4.1 1 5.7L12 16.6 6.9 19.3l1-5.7-4.2-4.1 5.8-.8z"/></svg>
-        </div>
-        <span class="sr-only">Valoración: 5 de 5 estrellas</span>
-        <blockquote><span class="placeholder">[ Pega aquí, palabra por palabra, una reseña real de tu ficha de Google. ]</span></blockquote>
-        <cite>Nombre B. <span>&middot; Reseña de Google</span></cite>
-      </article>
-      <article class="review reveal" data-d="140">
-        <div class="stars" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3.4l2.5 5.3 5.8.8-4.2 4.1 1 5.7L12 16.6 6.9 19.3l1-5.7-4.2-4.1 5.8-.8z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3.4l2.5 5.3 5.8.8-4.2 4.1 1 5.7L12 16.6 6.9 19.3l1-5.7-4.2-4.1 5.8-.8z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3.4l2.5 5.3 5.8.8-4.2 4.1 1 5.7L12 16.6 6.9 19.3l1-5.7-4.2-4.1 5.8-.8z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3.4l2.5 5.3 5.8.8-4.2 4.1 1 5.7L12 16.6 6.9 19.3l1-5.7-4.2-4.1 5.8-.8z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3.4l2.5 5.3 5.8.8-4.2 4.1 1 5.7L12 16.6 6.9 19.3l1-5.7-4.2-4.1 5.8-.8z"/></svg>
-        </div>
-        <span class="sr-only">Valoración: 5 de 5 estrellas</span>
-        <blockquote><span class="placeholder">[ Pega aquí, palabra por palabra, una reseña real de tu ficha de Google. ]</span></blockquote>
-        <cite>Nombre C. <span>&middot; Reseña de Google</span></cite>
-      </article>
-    </div>
-    <div class="reviews-cta reveal">
-      <a class="btn btn-ghost" href="https://maps.app.goo.gl/zYHU84jc5R4UHhoX9" target="_blank" rel="noopener">Ver todas las reseñas en Google</a>
+    <!-- Sin reseñas inventadas. Cuando haya testimonios reales (con permiso),
+         se añadirán aquí. Mientras, bloque honesto + enlaces a redes y Google. -->
+    <div class="exp-soon reveal">
+      <div class="soon-ic">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      </div>
+      <p>Estamos recopilando las experiencias reales de nuestras clientas para compartirlas aquí muy pronto, siempre con su consentimiento.</p>
+      <p>Mientras tanto, puedes ver el día a día del centro y los comentarios en nuestras redes, o dejarnos tu opinión en Google.</p>
+      <div class="soon-ctas">
+        <a class="btn btn-coral" href="https://www.instagram.com/beautyjess.es/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="3.8"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg>
+          Ver en Instagram
+        </a>
+        <a class="btn btn-ghost" href="https://maps.app.goo.gl/zYHU84jc5R4UHhoX9" target="_blank" rel="noopener">Ver reseñas en Google</a>
+      </div>
     </div>
   </div>
 </section>
@@ -464,15 +380,15 @@
       </details>
       <details>
         <summary>¿Cuántas sesiones necesitaré? <span class="plus" aria-hidden="true">+</span></summary>
-        <p>Depende de la zona, del tipo de vello y de tu piel. Por eso la primera visita es una valoración: salimos de ella con un plan claro y realista, sin promesas infladas.</p>
+        <p>Depende de la zona, del tipo de vello y de tu piel; cada persona responde de forma distinta. Por eso la primera visita es una valoración: salimos de ella con un plan claro y realista, sin promesas infladas.</p>
       </details>
       <details>
         <summary>¿Puedo hacerme láser en verano o con la piel bronceada? <span class="plus" aria-hidden="true">+</span></summary>
-        <p>Con precaución, sí: valoramos tu fototipo y el estado de tu piel antes de cada sesión, y adaptamos el protocolo. Si en algún momento no es seguro tratar una zona, te lo decimos claramente.</p>
+        <p>Lo valoramos antes de cada sesión según tu fototipo y el estado de tu piel, y adaptamos el protocolo. Si en algún momento no es recomendable tratar una zona, te lo decimos claramente.</p>
       </details>
       <details>
         <summary>¿La criolipólisis sirve para adelgazar? <span class="plus" aria-hidden="true">+</span></summary>
-        <p>No: es un tratamiento de remodelación para la grasa localizada que se resiste a la dieta y al ejercicio. No sustituye unos hábitos saludables; los complementa.</p>
+        <p>No es un método para adelgazar: es un tratamiento orientado a trabajar zonas localizadas. No sustituye unos hábitos saludables; los complementa, y los resultados varían según cada persona.</p>
       </details>
       <details>
         <summary>¿Atendéis a hombres? <span class="plus" aria-hidden="true">+</span></summary>
@@ -482,11 +398,22 @@
         <summary>¿La primera valoración me compromete a algo? <span class="plus" aria-hidden="true">+</span></summary>
         <p>A nada. Estudiamos tu caso, te explicamos las opciones y resolvemos dudas. Después decides con calma.</p>
       </details>
-      <details>
-        <summary>¿Necesito cita para la parafarmacia? <span class="plus" aria-hidden="true">+</span></summary>
-        <p>No. Pásate en horario de apertura y te asesoramos sobre tu rutina. Para los tratamientos en cabina sí conviene reservar, mejor por WhatsApp.</p>
-      </details>
     </div>
+  </div>
+</section>
+
+<!-- ========== CTA FINAL ========== -->
+<section class="section cta-final" id="reservar">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Reserva</span>
+      <h2>Empieza con una valoración personalizada.</h2>
+      <p class="lead">Cuéntanos qué te gustaría mejorar y te orientaremos sobre el tratamiento más adecuado para tu piel o tu cuerpo, sin compromiso.</p>
+    </div>
+    <a class="btn btn-coral btn-lg reveal" href="https://wa.me/34637332622?text=Hola!%20Me%20gustar%C3%ADa%20una%20valoraci%C3%B3n%20personalizada%20en%20BeautyJess.%20Me%20gustar%C3%ADa%20mejorar%3A%20" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.4 7.5L4 21l1.6-4.4A8.5 8.5 0 1 1 21 12z"/></svg>
+      Reservar por WhatsApp
+    </a>
   </div>
 </section>
 
@@ -508,14 +435,12 @@
           Ctra. Mas Oliva, 15-21<br>Local 4
           <small>17480 Roses &middot; Girona &middot; Costa Brava</small>
         </p>
-        <!-- Al publicar, opcional: sustituir el botón por un iframe de Google Maps embebido -->
         <a class="btn btn-light" href="https://maps.app.goo.gl/zYHU84jc5R4UHhoX9" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6 7-11a7 7 0 1 0-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
           Abrir en Google Maps
         </a>
       </div>
       <div class="info reveal" data-d="80">
-        <!-- [CONFIRMAR] Horario actual -->
         <table class="hours">
           <caption class="sr-only">Horario de apertura</caption>
           <tr><td>Lunes &ndash; Viernes</td><td>9:00&ndash;13:00 &middot; 15:00&ndash;19:00</td></tr>
@@ -527,9 +452,9 @@
           <a href="mailto:info@beautyjess.es">info@beautyjess.es</a>
         </div>
         <div class="contact-ctas">
-          <a class="btn btn-coral" href="https://wa.me/34637332622?text=Hola!%20Quiero%20reservar%20una%20cita%20en%20BeautyJess.%20Me%20interesa%3A%20" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.4 7.5L4 21l1.6-4.4A8.5 8.5 0 1 1 21 12z"/><circle cx="9" cy="12" r=".9" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r=".9" fill="currentColor" stroke="none"/><circle cx="15" cy="12" r=".9" fill="currentColor" stroke="none"/></svg>
-            Reservar por WhatsApp
+          <a class="btn btn-coral" href="https://wa.me/34637332622?text=Hola!%20Me%20gustar%C3%ADa%20reservar%20una%20valoraci%C3%B3n%20en%20BeautyJess." target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.4 7.5L4 21l1.6-4.4A8.5 8.5 0 1 1 21 12z"/></svg>
+            Hablar por WhatsApp
           </a>
           <a class="btn btn-ghost" href="tel:+34637332622">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
@@ -548,7 +473,7 @@
     <div class="footer-grid">
       <div class="f-brand">
         <span class="word">Beauty<em>Jess</em></span>
-        <p>Estética avanzada y parafarmacia en Roses, Costa Brava. Aparatología médico-estética con valoración personalizada.</p>
+        <p>Centro de estética avanzada en Roses, Costa Brava. Tratamientos faciales y corporales personalizados, con tecnología estética avanzada y valoración previa.</p>
         <p class="claim">&laquo;Tu belleza y bienestar, nuestro compromiso constante.&raquo;</p>
       </div>
       <div class="f-col">
@@ -560,7 +485,6 @@
           <li><a href="mailto:info@beautyjess.es">info@beautyjess.es</a></li>
         </ul>
         <div class="social">
-          <!-- [CONFIRMAR] cuenta de Instagram activa: @beautyjess.es o @beautyjess_oficial -->
           <a href="https://www.instagram.com/beautyjess.es/" target="_blank" rel="noopener" aria-label="Instagram de BeautyJess">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="3.8"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg>
           </a>
@@ -580,7 +504,6 @@
     </div>
     <div class="footer-bottom">
       <span>&copy; 2026 BeautyJess &middot; Roses, Costa Brava</span>
-      <!-- [CONFIRMAR] Completar en las páginas legales los datos del titular (razón social, NIF) -->
       <nav class="legal" aria-label="Enlaces legales">
         <a href="aviso-legal.html">Aviso legal</a>
         <a href="privacidad.html">Privacidad</a>
@@ -591,7 +514,7 @@
 </footer>
 
 <!-- ========== WHATSAPP FLOTANTE ========== -->
-<a class="fab" href="https://wa.me/34637332622?text=Hola!%20Quiero%20reservar%20una%20cita%20en%20BeautyJess.%20Me%20interesa%3A%20" target="_blank" rel="noopener" aria-label="Reservar por WhatsApp">
+<a class="fab" href="https://wa.me/34637332622?text=Hola!%20Me%20gustar%C3%ADa%20reservar%20una%20valoraci%C3%B3n%20en%20BeautyJess." target="_blank" rel="noopener" aria-label="Reservar por WhatsApp">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.4 7.5L4 21l1.6-4.4A8.5 8.5 0 1 1 21 12z"/><circle cx="9" cy="12" r=".9" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r=".9" fill="currentColor" stroke="none"/><circle cx="15" cy="12" r=".9" fill="currentColor" stroke="none"/></svg>
 </a>
 

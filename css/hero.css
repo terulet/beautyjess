@@ -1,340 +1,248 @@
 /* ============================================================
-   BeautyJess — Hero "2030" interactivo
+   BeautyJess — Hero editorial premium
    ------------------------------------------------------------
-   · Glassmorphism + reflejos de luz líquida + partículas (canvas)
-   · Escena dirigida por scroll mediante UNA sola variable --p (0→1)
-     que escribe el JS; el CSS interpola color, brillo y posición.
-   · Clases con prefijo .bjhero* para NO colisionar con styles.css.
-   · Animaciones sólo en transform / opacity / filter (GPU, 60fps).
-   · Degradación: sin JS → todo visible y estático; reduced-motion
-     y dispositivos lentos → escena fija sin partículas.
+   · Paleta ivory / champagne / nude / oro fino / carbón (sin teal).
+   · Composición editorial: copy + imagen en marco con profundidad
+     y paneles glass flotantes. Luz perlada y halos suaves.
+   · Animaciones finas (transform/opacity): entrada, parallax sutil,
+     deriva de halos y light-sweep en el CTA principal.
+   · Namespacing .bjhero* para no colisionar con styles.css.
+   · Degradación: prefers-reduced-motion → escena calmada y estática.
    ============================================================ */
 
 .bjhero{
-  /* paleta del hero (independiente del resto del sitio) */
-  --cream:#FBF8F3;
-  --champagne:#EFE3D0;
-  --beige:#E7D7C1;
-  --gold:#C8A86B;
+  --ivory:#FCFAF6;
+  --cream:#F6EEE2;
+  --champagne:#EBDDC6;
+  --nude:#EAD7CE;
+  --gold:#C8AD85;
   --gold-deep:#A9824A;
-  --gold-soft:#E2CDA1;
-  --ink:#3A332B;
-  --ink-soft:#6B6056;
+  --charcoal:#2C2723;
+  --charcoal-soft:#6A6056;
 
-  --p:0;            /* progreso de scroll (lo escribe js/hero.js) */
-  --mx:50%;         /* posición X del puntero/tilt para el reflejo */
-  --my:40%;         /* posición Y del puntero/tilt */
-  --scrub:80vh;     /* scroll extra para "scrubbing" de la escena */
+  --px:0; --py:0;     /* parallax de puntero (lo escribe JS) */
+  --sy:0;             /* parallax de scroll */
 
   position:relative;
-  min-height:calc(100svh + var(--scrub));
-  background:var(--cream);
-  color:var(--ink);
-  font-family:var(--font-body, "Figtree", system-ui, sans-serif);
-}
-/* estado estático: sin scrub (reduced-motion / fallback JS) */
-.bjhero.is-static{min-height:100svh; --scrub:0; --p:.55}
-
-/* ---------- Escenario fijo (sticky) ---------- */
-.bjhero__stage{
-  position:sticky; top:0;
-  height:100svh; min-height:560px;
+  min-height:100svh;
+  display:flex; align-items:center;
   overflow:hidden;
-  display:grid; align-items:center;
-  isolation:isolate;            /* contiene los z-index dentro del hero */
-}
-.bjhero.is-static .bjhero__stage{position:relative}
-
-/* ---------- Fondo crema → champán según --p ---------- */
-.bjhero__bg{
-  position:absolute; inset:0; z-index:0;
   background:
-    radial-gradient(130% 100% at 18% 8%, #ffffff 0%, transparent 52%),
-    linear-gradient(158deg, var(--cream), var(--beige));
-}
-@supports (background: color-mix(in oklab, white, black)){
-  .bjhero__bg{
-    background:
-      radial-gradient(130% 100% at 18% 8%,
-        color-mix(in oklab, #fff, var(--champagne) calc(var(--p) * 55%)) 0%, transparent 55%),
-      linear-gradient(158deg,
-        color-mix(in oklab, var(--cream), var(--champagne) calc(var(--p) * 100%)),
-        color-mix(in oklab, var(--beige), var(--gold-soft) calc(var(--p) * 65%)));
-  }
+    radial-gradient(120% 90% at 16% 8%, #fff 0%, transparent 46%),
+    radial-gradient(120% 100% at 100% 0%, var(--nude) 0%, transparent 42%),
+    linear-gradient(162deg, var(--ivory) 0%, var(--cream) 58%, var(--champagne) 130%);
+  color:var(--charcoal);
+  font-family:var(--font-body, "Figtree", system-ui, sans-serif);
+  padding-block:clamp(104px,14vh,150px) clamp(72px,12vh,120px);
 }
 
-/* ---------- Superficie "piel" abstracta: se aclara y suaviza ---------- */
-.bjhero__skin{
-  position:absolute; z-index:1; pointer-events:none;
-  right:-6%; top:50%; translate:0 -50%;
-  width:min(72vw,760px); aspect-ratio:1; border-radius:50%;
-  background:
-    radial-gradient(closest-side at 38% 34%, #fff8ef, transparent 72%),
-    conic-gradient(from 120deg at 50% 50%, #f3e6d2, #e9d6bd, #f7ecdb, #ecdcc4, #f3e6d2);
-  mix-blend-mode:soft-light;
-  opacity:calc(.38 + var(--p) * .32);
-  filter:blur(calc(12px + var(--p) * 22px))
-         brightness(calc(1 + var(--p) * .12))
-         saturate(calc(1 + var(--p) * .06));
-  animation:bjspin 72s linear infinite;
-}
-@keyframes bjspin{to{rotate:360deg}}
-
-/* ---------- Reflejo de luz líquida (sigue al puntero/tilt) ---------- */
-.bjhero__glow{
-  position:absolute; inset:-15%; z-index:2; pointer-events:none;
-  background:radial-gradient(38% 30% at var(--mx) var(--my),
-            rgba(255,255,255,.45), rgba(255,247,232,.15) 45%, transparent 65%);
-  mix-blend-mode:screen;
-  opacity:calc(.36 + var(--p) * .2);
+/* textura muy sutil (grano) sobre el fondo */
+.bjhero::before{
+  content:""; position:absolute; inset:0; z-index:0; pointer-events:none;
+  opacity:.5; mix-blend-mode:soft-light;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
 }
 
-/* ---------- Canvas de partículas (decorativo, aria-hidden) ---------- */
-.bjhero__particles{position:absolute; inset:0; z-index:3; pointer-events:none}
-
-/* ---------- Fundido inferior: el hero se disuelve en la barra de confianza ----------
-   Cose la paleta cálida (champán) con la porcelana del resto del sitio,
-   sin costura ni choque con el teal de las secciones siguientes. */
-.bjhero__stage::after{
-  content:""; position:absolute; left:0; right:0; bottom:0; height:20%;
-  z-index:4; pointer-events:none;
-  background:linear-gradient(to bottom, transparent, var(--porcelana, #FAF7F2));
+/* halos perlados que derivan lentamente */
+.bjhero__halo{position:absolute; border-radius:50%; filter:blur(60px); pointer-events:none; z-index:0}
+.bjhero__halo--1{
+  width:46vmax; height:46vmax; top:-18vmax; right:-10vmax;
+  background:radial-gradient(circle at 40% 40%, rgba(232,216,191,.7), transparent 64%);
+  translate:calc(var(--px)*-14px) calc(var(--py)*-14px + var(--sy)*40px);
+  animation:bjDrift 22s ease-in-out infinite alternate;
 }
+.bjhero__halo--2{
+  width:38vmax; height:38vmax; bottom:-16vmax; left:-12vmax;
+  background:radial-gradient(circle at 60% 40%, rgba(234,215,206,.6), transparent 62%);
+  translate:calc(var(--px)*12px) calc(var(--py)*12px);
+  animation:bjDrift 28s ease-in-out infinite alternate-reverse;
+}
+@keyframes bjDrift{from{transform:translate3d(0,0,0) scale(1)}to{transform:translate3d(3%,4%,0) scale(1.08)}}
 
-/* ---------- Contenido (encima de las capas decorativas) ---------- */
+/* ---------- Layout ---------- */
 .bjhero__inner{
-  position:relative; z-index:5; width:100%;
-  display:grid; grid-template-columns:minmax(0,1.06fr) minmax(0,.94fr);
-  gap:clamp(28px,4vw,64px); align-items:center;
-  padding-top:clamp(104px,14vh,150px);    /* deja sitio al header fijo */
-  padding-bottom:clamp(132px,22vh,210px); /* reserva la franja de tarjetas */
+  position:relative; z-index:2; width:100%;
+  display:grid; grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr);
+  gap:clamp(32px,5vw,76px); align-items:center;
 }
 
-.bjhero__copy{max-width:620px; transform:translateY(calc(var(--p) * -24px))}
+/* ---------- Copy ---------- */
+.bjhero__copy{max-width:600px}
 .bjhero__eyebrow{
   display:inline-flex; align-items:center; gap:.7em;
   font:600 .74rem/1 var(--font-body, sans-serif);
   letter-spacing:.24em; text-transform:uppercase; color:var(--gold-deep);
-  margin-bottom:20px;
+  margin-bottom:22px;
 }
-.bjhero__eyebrow::before{content:""; width:30px; height:1px; background:currentColor; opacity:.6}
+.bjhero__eyebrow::before{content:""; width:30px; height:1px; background:currentColor; opacity:.55}
 .bjhero__title{
-  font:var(--fw,520) clamp(2.4rem,6.2vw,4.3rem)/1.02 var(--font-display, "Fraunces", serif);
-  letter-spacing:-.022em; margin:0; color:var(--ink);
+  font:500 clamp(2.5rem,6vw,4.4rem)/1.03 var(--font-display, "Fraunces", serif);
+  letter-spacing:-.02em; margin:0; color:var(--charcoal);
 }
 .bjhero__title .grad{
-  background:linear-gradient(100deg, var(--gold) 0%, var(--gold-deep) 48%, var(--gold) 100%);
+  font-style:italic;
+  background:linear-gradient(100deg, var(--gold-deep), #8a6a3c 50%, var(--gold-deep));
   -webkit-background-clip:text; background-clip:text;
   -webkit-text-fill-color:transparent; color:transparent;
 }
 .bjhero__sub{
-  margin:22px 0 0; max-width:46ch;
-  font-size:clamp(1.04rem,1.5vw,1.2rem); color:var(--ink-soft); line-height:1.6;
+  margin:22px 0 0; max-width:48ch;
+  font-size:clamp(1.05rem,1.5vw,1.2rem); color:var(--charcoal-soft); line-height:1.62;
 }
-.bjhero__cta{display:flex; flex-wrap:wrap; gap:14px; margin-top:32px}
 
-/* botones del hero (estilo oro premium, propios del módulo) */
+/* ---------- CTAs ---------- */
+.bjhero__cta{display:flex; flex-wrap:wrap; gap:14px; margin-top:34px}
 .bjbtn{
+  position:relative; overflow:hidden;
   display:inline-flex; align-items:center; justify-content:center; gap:.55em;
-  padding:1em 1.9em; border-radius:999px; border:1.5px solid transparent;
-  font:600 1rem var(--font-body, sans-serif); letter-spacing:.01em; cursor:pointer;
+  padding:1.05em 2.05em; border-radius:999px; border:1.5px solid transparent;
+  font:600 1.02rem var(--font-body, sans-serif); letter-spacing:.01em;
+  text-decoration:none; cursor:pointer;
   transition:transform .35s cubic-bezier(.2,.7,.3,1), box-shadow .35s, background .25s, color .25s, border-color .25s;
 }
 .bjbtn svg{width:1.15em; height:1.15em; flex:none}
 .bjbtn:hover{transform:translateY(-2px)}
 .bjbtn:active{transform:translateY(0) scale(.985)}
-/* CTA principal: teal de marca (contraste AAA con texto blanco) + anillo
-   dorado sutil. Conecta cromáticamente el hero con el resto del sitio. */
+
+/* principal: carbón + anillo dorado + light sweep muy fino */
 .bjbtn--primary{
-  position:relative;
-  background:var(--tinta, #16313B); color:#fff;
-  border-color:rgba(255,255,255,.16);
-  padding:1.08em 2.2em; font-size:1.05rem;
-  box-shadow:0 18px 36px -14px rgba(22,49,59,.55), 0 0 0 4px rgba(200,168,107,.2);
+  background:var(--charcoal); color:var(--ivory);
+  border-color:rgba(255,255,255,.14);
+  box-shadow:0 16px 34px -14px rgba(44,39,35,.55), 0 0 0 4px rgba(200,173,133,.2);
 }
 .bjbtn--primary:hover{
-  background:#1d4453;
-  box-shadow:0 24px 48px -16px rgba(22,49,59,.62), 0 0 0 5px rgba(200,168,107,.32);
+  box-shadow:0 22px 46px -16px rgba(44,39,35,.62), 0 0 0 5px rgba(200,173,133,.32);
 }
-.bjbtn--primary::after{   /* halo de atención, lento y discreto */
-  content:""; position:absolute; inset:-1px; border-radius:inherit; pointer-events:none;
-  animation:bjPulse 3.6s ease-out infinite;
+.bjbtn--primary::after{           /* microbrillo que barre lentamente */
+  content:""; position:absolute; top:0; left:-60%; width:45%; height:100%;
+  background:linear-gradient(100deg, transparent, rgba(255,247,232,.45), transparent);
+  transform:skewX(-18deg);
+  animation:bjSweep 5.5s ease-in-out infinite;
 }
-@keyframes bjPulse{
-  0%{box-shadow:0 0 0 0 rgba(200,168,107,.45)}
-  70%,100%{box-shadow:0 0 0 13px rgba(200,168,107,0)}
-}
+@keyframes bjSweep{0%{left:-60%}28%{left:130%}100%{left:130%}}
+
+/* secundario: vidrio sobre el fondo claro */
 .bjbtn--glass{
-  background:rgba(255,255,255,.45); color:var(--ink);
+  background:rgba(255,255,255,.5); color:var(--charcoal);
   border-color:rgba(169,130,74,.4);
-  backdrop-filter:blur(10px) saturate(1.2); -webkit-backdrop-filter:blur(10px) saturate(1.2);
+  -webkit-backdrop-filter:blur(10px) saturate(1.2); backdrop-filter:blur(10px) saturate(1.2);
 }
-.bjbtn--glass:hover{background:rgba(255,255,255,.7); border-color:var(--gold-deep)}
+.bjbtn--glass:hover{background:rgba(255,255,255,.78); border-color:var(--gold-deep)}
 
-/* ---------- Panel de vidrio: revelado tipo antes/después (ilustrativo) ---------- */
-.bjhero__visual{position:relative; justify-self:end; width:min(100%,420px);
-  transform:translateY(calc(var(--p) * 18px))}
-.bjglass{
-  border-radius:26px;
-  background:rgba(255,255,255,.5);
-  backdrop-filter:blur(16px) saturate(1.25); -webkit-backdrop-filter:blur(16px) saturate(1.25);
-  border:1px solid rgba(255,255,255,.65);
-  box-shadow:0 34px 64px -26px rgba(120,96,60,.5), inset 0 1px 0 rgba(255,255,255,.75);
+/* ---------- Fila de confianza ---------- */
+.bjhero__trust{
+  display:flex; flex-wrap:wrap; gap:10px 22px; margin-top:32px;
+  font:600 .86rem var(--font-body, sans-serif); color:var(--charcoal-soft);
 }
-.bjreveal{padding:14px}
-.bjreveal__media{
-  position:relative; aspect-ratio:4/5; border-radius:16px; overflow:hidden;
-  touch-action:pan-y; cursor:ew-resize; --rv:50%;
-  background:var(--beige);
-}
-.bjreveal__base, .bjreveal__top{position:absolute; inset:0; width:100%; height:100%}
-.bjreveal__base{object-fit:cover; filter:brightness(1.06) saturate(1.07)}             /* lado "luminoso" */
-.bjreveal__top{object-fit:cover; filter:saturate(.9) brightness(.97) contrast(1.05);  /* lado "mate" */
-  clip-path:inset(0 calc(100% - var(--rv)) 0 0);}
-.bjreveal__handle{
-  position:absolute; top:0; bottom:0; left:var(--rv); width:2px; margin-left:-1px; z-index:3;
-  background:rgba(255,255,255,.92); cursor:ew-resize;
-}
-.bjreveal__handle::after{
-  content:""; position:absolute; top:50%; left:50%; translate:-50% -50%;
-  width:38px; height:38px; border-radius:50%;
-  background:rgba(255,255,255,.92); box-shadow:0 8px 22px rgba(120,96,60,.5);
-}
-.bjreveal__handle::before{
-  content:"‹ ›"; position:absolute; top:50%; left:50%; translate:-50% -50%; z-index:1;
-  font:600 .7rem var(--font-body, sans-serif); color:var(--gold-deep); letter-spacing:.05em;
-}
-.bjreveal__tag{
-  position:absolute; z-index:2; top:12px; font:600 .62rem var(--font-body, sans-serif);
-  letter-spacing:.12em; text-transform:uppercase; padding:.45em .9em; border-radius:999px;
-  background:rgba(58,51,43,.5); color:#fff; backdrop-filter:blur(4px); -webkit-backdrop-filter:blur(4px);
-}
-.bjreveal__tag--l{left:12px}
-.bjreveal__tag--r{right:12px}
-.bjreveal__cap{margin:10px 4px 2px; font-size:.74rem; color:var(--ink-soft); text-align:center}
+.bjhero__trust li{display:inline-flex; align-items:center; gap:.5em; list-style:none}
+.bjhero__trust svg{width:17px; height:17px; color:var(--gold-deep); flex:none}
 
-/* ---------- Tarjetas de servicios flotantes (vidrio) ---------- */
-.bjhero__cards{
-  position:absolute; z-index:6; left:0; right:0; bottom:clamp(18px,4vh,44px);
-  width:100%; max-width:var(--maxw,1200px); margin:0 auto;
-  padding:0 clamp(20px,5vw,48px);
-  display:grid; grid-template-columns:repeat(4,1fr); gap:14px;
-  list-style:none;
+/* ---------- Visual editorial ---------- */
+.bjhero__visual{
+  position:relative; justify-self:end;
+  width:min(100%,440px); aspect-ratio:4/5;
+  translate:0 calc(var(--sy)*-26px);
 }
-.bjcard{
-  --i:0;
-  display:flex; align-items:center; gap:12px;
-  padding:12px; border-radius:18px;
-  background:rgba(255,255,255,.46);
-  backdrop-filter:blur(14px) saturate(1.2); -webkit-backdrop-filter:blur(14px) saturate(1.2);
-  border:1px solid rgba(255,255,255,.6);
-  box-shadow:0 18px 40px -22px rgba(120,96,60,.5), inset 0 1px 0 rgba(255,255,255,.7);
-  color:var(--ink); text-decoration:none;
-  transition:transform .5s cubic-bezier(.2,.7,.3,1), box-shadow .4s;
+.bjframe{
+  position:relative; width:100%; height:100%; border-radius:200px 200px 26px 26px;
+  overflow:hidden;
+  box-shadow:0 40px 80px -30px rgba(44,39,35,.5), 0 10px 30px -14px rgba(44,39,35,.3);
+  transform:rotate(1.4deg);
+}
+.bjframe img{width:100%; height:100%; object-fit:cover; display:block}
+.bjframe::after{    /* reflejo perlado interior */
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(150deg, rgba(255,255,255,.4) 0%, transparent 32%, transparent 78%, rgba(44,39,35,.18) 100%);
+  pointer-events:none;
+}
+/* aro de luz tras el marco */
+.bjhero__visual::before{
+  content:""; position:absolute; inset:-9% -9% -4% -9%; z-index:-1; border-radius:50%;
+  background:radial-gradient(closest-side, rgba(232,216,191,.8), transparent 72%);
+  filter:blur(8px);
+}
+
+/* paneles glass flotantes */
+.bjpill{
+  position:absolute; z-index:3;
+  display:inline-flex; align-items:center; gap:.6em;
+  padding:.72em 1.05em; border-radius:14px;
+  background:rgba(255,255,255,.58);
+  -webkit-backdrop-filter:blur(14px) saturate(1.2); backdrop-filter:blur(14px) saturate(1.2);
+  border:1px solid rgba(255,255,255,.7);
+  box-shadow:0 16px 38px -16px rgba(44,39,35,.34);
+  font:600 .82rem var(--font-body, sans-serif); color:var(--charcoal);
+  white-space:nowrap;
   animation:bjFloat 7s ease-in-out infinite;
-  animation-delay:calc(var(--i) * -1.6s);
 }
-.bjcard:hover{box-shadow:0 26px 52px -22px rgba(120,96,60,.6)}
-.bjcard__thumb{
-  width:54px; height:54px; flex:none; border-radius:12px; overflow:hidden; background:var(--beige);
-}
-.bjcard__thumb img{width:100%; height:100%; object-fit:cover; display:block}
-.bjcard__t{font:600 .92rem var(--font-body, sans-serif); line-height:1.2}
-.bjcard__s{display:block; margin-top:2px; font-size:.74rem; color:var(--ink-soft); font-weight:400}
-@keyframes bjFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+.bjpill svg{width:18px; height:18px; color:var(--gold-deep); flex:none}
+.bjpill--1{top:11%; left:-7%; translate:calc(var(--px)*16px) calc(var(--py)*16px)}
+.bjpill--2{top:49%; right:-9%; animation-delay:-2.4s; translate:calc(var(--px)*-18px) calc(var(--py)*-12px)}
+.bjpill--3{bottom:7%; left:-4%; animation-delay:-4.6s; translate:calc(var(--px)*12px) calc(var(--py)*-16px)}
+@keyframes bjFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 
-/* Las tarjetas "aparecen" con el scroll SÓLO cuando el JS activa el modo live.
-   Sin JS quedan visibles desde el inicio (accesible / sin saltos). */
-.bjhero--live .bjcard{
-  opacity:clamp(0, calc((var(--p) - var(--i) * .06) * 5), 1);
-  transform:translateY(calc((1 - clamp(0, calc((var(--p) - var(--i) * .06) * 5), 1)) * 48px));
+/* ---------- Fundido inferior largo hacia la siguiente sección ---------- */
+.bjhero__fade{
+  position:absolute; left:0; right:0; bottom:0; height:28%; z-index:1; pointer-events:none;
+  background:linear-gradient(to bottom, transparent, var(--porcelana, #FCFAF6));
 }
-.bjhero--live .bjcard:hover{transform:translateY(-4px)}
 
-/* ---------- Indicador de scroll ---------- */
-.bjhero__cue{
-  position:absolute; z-index:6; left:50%; bottom:14px; translate:-50% 0;
-  width:26px; height:42px; border:1.5px solid rgba(58,51,43,.45); border-radius:14px;
-  opacity:calc(1 - var(--p) * 2.2);
-}
-.bjhero__cue span{
-  position:absolute; left:50%; top:8px; width:3px; height:8px; margin-left:-1.5px;
-  border-radius:2px; background:var(--gold-deep);
-  animation:bjCue 1.8s ease-in-out infinite;
-}
-@keyframes bjCue{0%{transform:translateY(0);opacity:1}70%{transform:translateY(12px);opacity:0}100%{opacity:0}}
-
-/* ---------- Entrada del texto (al cargar) ---------- */
+/* ---------- Entrada ---------- */
 .bjhero__copy>*{animation:bjIn .9s cubic-bezier(.2,.7,.3,1) both}
-.bjhero__title{animation-delay:.08s}
-.bjhero__sub{animation-delay:.18s}
-.bjhero__cta{animation-delay:.28s}
-.bjhero__visual{animation:bjIn 1s cubic-bezier(.2,.7,.3,1) .2s both}
-@keyframes bjIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
-
-/* ---------- Rendimiento bajo: sin blur de vidrio ni giro ---------- */
-.bjhero.is-lowfx .bjglass,
-.bjhero.is-lowfx .bjcard,
-.bjhero.is-lowfx .bjbtn--glass{
-  backdrop-filter:none; -webkit-backdrop-filter:none; background:rgba(255,255,255,.82);
-}
-.bjhero.is-lowfx .bjhero__skin{animation:none}
-.bjhero.is-lowfx .bjcard{animation:none}
-.bjhero.is-lowfx .bjbtn--primary::after{animation:none}
+.bjhero__title{animation-delay:.06s}
+.bjhero__sub{animation-delay:.16s}
+.bjhero__cta{animation-delay:.26s}
+.bjhero__trust{animation-delay:.34s}
+.bjhero__visual{animation:bjIn 1s cubic-bezier(.2,.7,.3,1) .18s both}
+@keyframes bjIn{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
 
 /* ============================================================
-   MÓVIL / TABLET  (≤ 980px)
-   Una columna, tarjetas en tira deslizable, parallax por tilt/scroll.
+   MÓVIL (≤ 900px): imagen a pantalla completa con texto en blanco
    ============================================================ */
-@media (max-width:980px){
-  .bjhero{--scrub:42vh}        /* menos recorrido sticky = scroll más suave */
+@media (max-width:900px){
+  .bjhero{padding:0; min-height:100svh; align-items:stretch}
   .bjhero__inner{
-    grid-template-columns:1fr; gap:24px; text-align:center;
-    padding-top:clamp(96px,16vh,140px); padding-bottom:clamp(150px,26vh,210px);
+    display:flex; flex-direction:column; justify-content:flex-end;
+    gap:0; text-align:left;
+    padding:clamp(120px,20vh,180px) clamp(20px,6vw,40px) clamp(40px,8vh,70px);
   }
-  .bjhero__copy{margin:0 auto}
-  .bjhero__eyebrow{justify-content:center}
-  .bjhero__cta{justify-content:center}
-  .bjhero__visual{justify-self:center; width:min(78vw,330px); margin-top:6px}
-  /* blur FIJO (no animado por --p): evita repaints caros al hacer scroll */
-  .bjhero__skin{
-    right:50%; translate:50% -50%; width:120vw;
-    opacity:calc(.3 + var(--p)*.28);
-    filter:blur(22px) brightness(1.08) saturate(1.04);
-    animation-duration:110s;
+  .bjhero__visual{
+    position:absolute; inset:0; z-index:0;
+    width:100%; height:100%; aspect-ratio:auto; justify-self:auto;
+    translate:0 0; animation:none;
   }
-  /* menos coste de backdrop-filter en las tarjetas durante el scroll */
-  .bjcard{backdrop-filter:blur(8px) saturate(1.15); -webkit-backdrop-filter:blur(8px) saturate(1.15)}
-  .bjhero__glow{opacity:.34}
-
-  .bjhero__cards{
-    display:flex; gap:12px; overflow-x:auto; scroll-snap-type:x mandatory;
-    bottom:clamp(14px,3vh,30px); padding:4px clamp(16px,5vw,28px);
-    -webkit-overflow-scrolling:touch; scrollbar-width:none;
+  .bjframe{border-radius:0; transform:none; box-shadow:none}
+  .bjframe::after{
+    background:linear-gradient(to top, rgba(28,24,20,.9) 4%, rgba(28,24,20,.5) 42%, rgba(28,24,20,.15) 100%);
   }
-  .bjhero__cards::-webkit-scrollbar{display:none}
-  .bjcard{flex:0 0 70%; max-width:240px; scroll-snap-align:center}
-  .bjhero--live .bjcard{   /* en móvil aparecen juntas, sin escalonado por scroll */
-    opacity:clamp(0, calc(var(--p) * 6), 1);
-    transform:translateY(calc((1 - clamp(0, calc(var(--p) * 6), 1)) * 40px));
-  }
+  .bjhero__visual::before{display:none}
+  .bjpill{display:none}                  /* la foto ya es el protagonista en móvil */
+  .bjhero__copy{position:relative; z-index:2; max-width:none; color:var(--ivory)}
+  .bjhero__title{color:#fff}
+  .bjhero__title .grad{-webkit-text-fill-color:#F0DFC4; color:#F0DFC4}
+  .bjhero__eyebrow{color:#F0DFC4}
+  .bjhero__sub{color:rgba(255,255,255,.92)}
+  .bjhero__cta{margin-top:26px}
+  .bjbtn{flex:1 1 auto}
+  .bjbtn--glass{background:rgba(255,255,255,.16); color:#fff; border-color:rgba(255,255,255,.5)}
+  .bjbtn--glass:hover{background:rgba(255,255,255,.26); border-color:#fff}
+  .bjhero__trust{color:rgba(255,255,255,.9); margin-top:24px}
+  .bjhero__trust svg{color:#F0DFC4}
+  .bjhero__halo,.bjhero::before{display:none}
+  .bjhero__fade{display:none}
 }
 
-@media (max-width:560px){
-  .bjhero__title{font-size:clamp(2.1rem,9vw,2.9rem)}
-  .bjbtn{flex:1 1 auto}
-  .bjhero__visual{width:min(82vw,300px)}
+@media (max-width:420px){
+  .bjhero__title{font-size:clamp(2.2rem,9.5vw,3rem)}
+  .bjhero__trust{gap:8px 16px;font-size:.8rem}
 }
 
 /* ============================================================
-   REDUCED MOTION — escena fija, sin partículas ni giros
+   MOVIMIENTO REDUCIDO — escena calmada
    ============================================================ */
 @media (prefers-reduced-motion:reduce){
-  .bjhero{min-height:100svh; --scrub:0; --p:.5}
-  .bjhero__stage{position:relative}
-  .bjhero__skin{animation:none; filter:blur(24px) brightness(1.08)}
-  .bjhero__particles{display:none}
-  .bjhero__cue{display:none}
-  .bjhero__copy>*,.bjhero__visual,.bjcard{animation:none}
-  .bjbtn--primary::after{animation:none}
+  .bjhero__halo{animation:none}
+  .bjpill{animation:none}
+  .bjbtn--primary::after{display:none}
+  .bjhero__copy>*,.bjhero__visual{animation:none}
 }
