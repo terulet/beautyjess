@@ -72,11 +72,11 @@
     radial-gradient(closest-side at 38% 34%, #fff8ef, transparent 72%),
     conic-gradient(from 120deg at 50% 50%, #f3e6d2, #e9d6bd, #f7ecdb, #ecdcc4, #f3e6d2);
   mix-blend-mode:soft-light;
-  opacity:calc(.45 + var(--p) * .4);
-  filter:blur(calc(10px + var(--p) * 24px))
-         brightness(calc(1 + var(--p) * .14))
-         saturate(calc(1 + var(--p) * .1));
-  animation:bjspin 42s linear infinite;
+  opacity:calc(.38 + var(--p) * .32);
+  filter:blur(calc(12px + var(--p) * 22px))
+         brightness(calc(1 + var(--p) * .12))
+         saturate(calc(1 + var(--p) * .06));
+  animation:bjspin 72s linear infinite;
 }
 @keyframes bjspin{to{rotate:360deg}}
 
@@ -84,13 +84,22 @@
 .bjhero__glow{
   position:absolute; inset:-15%; z-index:2; pointer-events:none;
   background:radial-gradient(38% 30% at var(--mx) var(--my),
-            rgba(255,255,255,.55), rgba(255,247,232,.18) 45%, transparent 65%);
+            rgba(255,255,255,.45), rgba(255,247,232,.15) 45%, transparent 65%);
   mix-blend-mode:screen;
-  opacity:calc(.5 + var(--p) * .25);
+  opacity:calc(.36 + var(--p) * .2);
 }
 
 /* ---------- Canvas de partículas (decorativo, aria-hidden) ---------- */
 .bjhero__particles{position:absolute; inset:0; z-index:3; pointer-events:none}
+
+/* ---------- Fundido inferior: el hero se disuelve en la barra de confianza ----------
+   Cose la paleta cálida (champán) con la porcelana del resto del sitio,
+   sin costura ni choque con el teal de las secciones siguientes. */
+.bjhero__stage::after{
+  content:""; position:absolute; left:0; right:0; bottom:0; height:20%;
+  z-index:4; pointer-events:none;
+  background:linear-gradient(to bottom, transparent, var(--porcelana, #FAF7F2));
+}
 
 /* ---------- Contenido (encima de las capas decorativas) ---------- */
 .bjhero__inner{
@@ -134,12 +143,27 @@
 .bjbtn svg{width:1.15em; height:1.15em; flex:none}
 .bjbtn:hover{transform:translateY(-2px)}
 .bjbtn:active{transform:translateY(0) scale(.985)}
-.bjbtn--gold{
-  background:linear-gradient(120deg, var(--gold), #d8bd8c 55%, var(--gold));
-  background-size:200% 100%; color:#fff;
-  box-shadow:0 16px 34px -14px rgba(169,130,74,.6);
+/* CTA principal: teal de marca (contraste AAA con texto blanco) + anillo
+   dorado sutil. Conecta cromáticamente el hero con el resto del sitio. */
+.bjbtn--primary{
+  position:relative;
+  background:var(--tinta, #16313B); color:#fff;
+  border-color:rgba(255,255,255,.16);
+  padding:1.08em 2.2em; font-size:1.05rem;
+  box-shadow:0 18px 36px -14px rgba(22,49,59,.55), 0 0 0 4px rgba(200,168,107,.2);
 }
-.bjbtn--gold:hover{background-position:100% 0; box-shadow:0 22px 44px -16px rgba(169,130,74,.7)}
+.bjbtn--primary:hover{
+  background:#1d4453;
+  box-shadow:0 24px 48px -16px rgba(22,49,59,.62), 0 0 0 5px rgba(200,168,107,.32);
+}
+.bjbtn--primary::after{   /* halo de atención, lento y discreto */
+  content:""; position:absolute; inset:-1px; border-radius:inherit; pointer-events:none;
+  animation:bjPulse 3.6s ease-out infinite;
+}
+@keyframes bjPulse{
+  0%{box-shadow:0 0 0 0 rgba(200,168,107,.45)}
+  70%,100%{box-shadow:0 0 0 13px rgba(200,168,107,0)}
+}
 .bjbtn--glass{
   background:rgba(255,255,255,.45); color:var(--ink);
   border-color:rgba(169,130,74,.4);
@@ -256,13 +280,14 @@
 }
 .bjhero.is-lowfx .bjhero__skin{animation:none}
 .bjhero.is-lowfx .bjcard{animation:none}
+.bjhero.is-lowfx .bjbtn--primary::after{animation:none}
 
 /* ============================================================
    MÓVIL / TABLET  (≤ 980px)
    Una columna, tarjetas en tira deslizable, parallax por tilt/scroll.
    ============================================================ */
 @media (max-width:980px){
-  .bjhero{--scrub:55vh}
+  .bjhero{--scrub:42vh}        /* menos recorrido sticky = scroll más suave */
   .bjhero__inner{
     grid-template-columns:1fr; gap:24px; text-align:center;
     padding-top:clamp(96px,16vh,140px); padding-bottom:clamp(150px,26vh,210px);
@@ -271,7 +296,16 @@
   .bjhero__eyebrow{justify-content:center}
   .bjhero__cta{justify-content:center}
   .bjhero__visual{justify-self:center; width:min(78vw,330px); margin-top:6px}
-  .bjhero__skin{right:50%; translate:50% -50%; width:120vw; opacity:calc(.3 + var(--p)*.3)}
+  /* blur FIJO (no animado por --p): evita repaints caros al hacer scroll */
+  .bjhero__skin{
+    right:50%; translate:50% -50%; width:120vw;
+    opacity:calc(.3 + var(--p)*.28);
+    filter:blur(22px) brightness(1.08) saturate(1.04);
+    animation-duration:110s;
+  }
+  /* menos coste de backdrop-filter en las tarjetas durante el scroll */
+  .bjcard{backdrop-filter:blur(8px) saturate(1.15); -webkit-backdrop-filter:blur(8px) saturate(1.15)}
+  .bjhero__glow{opacity:.34}
 
   .bjhero__cards{
     display:flex; gap:12px; overflow-x:auto; scroll-snap-type:x mandatory;
@@ -302,4 +336,5 @@
   .bjhero__particles{display:none}
   .bjhero__cue{display:none}
   .bjhero__copy>*,.bjhero__visual,.bjcard{animation:none}
+  .bjbtn--primary::after{animation:none}
 }

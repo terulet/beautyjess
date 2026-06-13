@@ -25,7 +25,8 @@
   var cores = navigator.hardwareConcurrency || 4;
   var mem   = navigator.deviceMemory || 4;
   var lowTier = cores <= 4 || mem <= 4;
-  var COUNT = reduce ? 0 : (lowTier ? (coarse ? 24 : 34) : 70);
+  // Cantidad contenida: luz sutil, no "lluvia" de partículas (estética premium)
+  var COUNT = reduce ? 0 : (lowTier ? (coarse ? 18 : 26) : 46);
 
   /* ---------- Modo: live (con scrub+canvas) o estático ---------- */
   if (reduce) {
@@ -111,10 +112,10 @@
     for (var i = 0; i < n; i++) {
       parts.push({
         x: Math.random() * w, y: Math.random() * h,
-        r: 1.4 + Math.random() * 4.4,
-        vx: (-0.5 + Math.random()) * 0.18,
-        vy: (-0.5 + Math.random()) * 0.18 - 0.05,   // leve deriva ascendente
-        a: 0.22 + Math.random() * 0.5,
+        r: 1.3 + Math.random() * 3.8,
+        vx: (-0.5 + Math.random()) * 0.13,
+        vy: (-0.5 + Math.random()) * 0.13 - 0.04,    // deriva ascendente lenta
+        a: 0.14 + Math.random() * 0.34,              // más tenues
         ph: Math.random() * 6.28,
         depth: 0.3 + Math.random() * 0.7
       });
@@ -137,9 +138,9 @@
       p.x += p.vx * dt; p.y += p.vy * dt; p.ph += 0.02 * dt;
       if (p.y < -24) p.y = h + 24;
       if (p.x < -24) p.x = w + 24; else if (p.x > w + 24) p.x = -24;
-      var px = p.x + ox * 42 * p.depth;
-      var py = p.y + oy * 42 * p.depth;
-      var size = p.r * 2.4;
+      var px = p.x + ox * 38 * p.depth;
+      var py = p.y + oy * 38 * p.depth;
+      var size = p.r * 2.2;
       ctx.globalAlpha = p.a * (0.6 + 0.4 * Math.sin(p.ph));
       ctx.drawImage(sprite, px - size, py - size, size * 2, size * 2);
     }
