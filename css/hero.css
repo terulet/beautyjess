@@ -204,7 +204,7 @@
   .bjhero__inner{
     display:flex; flex-direction:column; justify-content:flex-end;
     gap:0; text-align:left;
-    padding:clamp(120px,20vh,180px) clamp(20px,6vw,40px) clamp(40px,8vh,70px);
+    padding:clamp(78px,10vh,100px) clamp(22px,6vw,40px) clamp(24px,4vh,40px);
   }
   .bjhero__visual{
     position:absolute; inset:0; z-index:0;
@@ -212,21 +212,27 @@
     translate:0 0; animation:none;
   }
   .bjframe{border-radius:0; transform:none; box-shadow:none}
-  .bjframe::after{
-    background:linear-gradient(to top, rgba(28,24,20,.9) 4%, rgba(28,24,20,.5) 42%, rgba(28,24,20,.15) 100%);
+  .bjframe img{object-position:50% 28%}        /* encuadra el rostro arriba */
+  .bjframe::after{                              /* oscurece la zona del texto para contraste */
+    background:linear-gradient(to top,
+      rgba(26,22,18,.94) 0%, rgba(26,22,18,.86) 30%,
+      rgba(26,22,18,.5) 58%, rgba(26,22,18,.12) 100%);
   }
   .bjhero__visual::before{display:none}
   .bjpill{display:none}                  /* la foto ya es el protagonista en móvil */
   .bjhero__copy{position:relative; z-index:2; max-width:none; color:var(--ivory)}
-  .bjhero__title{color:#fff}
+  .bjhero__title{color:#fff; font-size:clamp(1.95rem,7.6vw,2.5rem); line-height:1.08}
   .bjhero__title .grad{-webkit-text-fill-color:#F0DFC4; color:#F0DFC4}
-  .bjhero__eyebrow{color:#F0DFC4}
-  .bjhero__sub{color:rgba(255,255,255,.92)}
-  .bjhero__cta{margin-top:26px}
+  .bjhero__eyebrow{color:#F0DFC4; margin-bottom:10px}
+  .bjhero__sub{color:rgba(255,255,255,.92); font-size:.98rem; margin-top:12px; max-width:36ch}
+  .bjhero__cta{margin-top:18px}
   .bjbtn{flex:1 1 auto}
-  .bjbtn--glass{background:rgba(255,255,255,.16); color:#fff; border-color:rgba(255,255,255,.5)}
+  /* sobre foto oscura, el principal en ivory destaca más que el carbón */
+  .bjbtn--primary{background:var(--ivory); color:var(--charcoal); border-color:transparent;
+    box-shadow:0 14px 30px -12px rgba(0,0,0,.5), 0 0 0 4px rgba(240,223,196,.3)}
+  .bjbtn--glass{background:rgba(255,255,255,.14); color:#fff; border-color:rgba(255,255,255,.55)}
   .bjbtn--glass:hover{background:rgba(255,255,255,.26); border-color:#fff}
-  .bjhero__trust{color:rgba(255,255,255,.9); margin-top:24px}
+  .bjhero__trust{color:rgba(255,255,255,.92); margin-top:16px; gap:7px 16px; font-size:.8rem}
   .bjhero__trust svg{color:#F0DFC4}
   .bjhero__halo,.bjhero::before{display:none}
   .bjhero__fade{display:none}
